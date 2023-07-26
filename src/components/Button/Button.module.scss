@@ -1,0 +1,32 @@
+@import "@/_global.scss";
+
+.button {
+  height: 44px;
+  padding: 12px 8px;
+  width: 420px;
+
+  @media only screen and (max-width: 425px){
+    width: 320px
+  }
+}
+
+.auxButton {
+  width: min-content;
+}
+
+.contained {
+  background-color: $primary-color;
+  color: $white;
+}
+
+.text {
+  background-color: none;
+  color: $primary-color;
+  max-width: min-content;
+}
+
+.outlined {
+  background-color: none;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+}
