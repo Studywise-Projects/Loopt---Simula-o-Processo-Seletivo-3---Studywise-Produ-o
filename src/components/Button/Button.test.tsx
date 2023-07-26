@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Button from './Button';
 
 describe('Button', () => {
-  it('Render Button correctly', () => {
+  it('Render correctly', () => {
     const wrapper = shallow(
       <Button
         variant='contained'
@@ -16,7 +16,7 @@ describe('Button', () => {
     expect(wrapper.text()).toEqual('Button');
   });
 
-  it('Render button with default prop: variant = contained', () => {
+  it('Render with default prop: variant = contained', () => {
     const wrapper = shallow(
       <Button text='Button' handleClick={() => undefined} />,
     );
@@ -24,7 +24,15 @@ describe('Button', () => {
     expect(wrapper.prop('variant')).toEqual('contained');
   });
 
-  it('Render button with default prop: isAuxButton = false', () => {
+  it('Render without class: auxButton', () => {
+    const wrapper = shallow(
+      <Button text='Button' handleClick={() => undefined} />,
+    );
+
+    expect(wrapper.hasClass('auxButton')).toEqual(false);
+  });
+
+  it('Render with default prop: isAuxButton = false', () => {
     const handleClickMock = jest.fn();
 
     const wrapper = shallow(

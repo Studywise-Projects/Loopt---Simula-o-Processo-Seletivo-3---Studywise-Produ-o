@@ -1,15 +1,18 @@
-import Button from '@/components/Button/Button';
+import SelectAutoComplete from '@/components/SelectAutoComplete/SelectAutoComplete';
 
 export default function Home() {
   return (
     <>
-      <Button
-        variant='contained'
-        text='Button'
-        handleClick={() => undefined}
-        isAuxButton={true}
+      <SelectAutoComplete
+        options={[
+          {
+            id: 1,
+            label: 'Desenvolvedor Front-End',
+          },
+          { id: 2, label: 'Desenvolvedor Back-End' },
+        ]}
+        label='Vaga'
       />
-      <Button variant='outlined' text='Button' handleClick={() => undefined} />
     </>
   );
 }
