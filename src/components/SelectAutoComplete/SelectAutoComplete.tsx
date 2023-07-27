@@ -1,7 +1,9 @@
 import { Autocomplete, TextField } from '@mui/material';
 import styles from './SelectAutoComplete.module.scss';
+import classNames from 'classnames';
 
 interface ISelectAutoComplete {
+  isAuxSelect?: boolean;
   options: any;
   label: string;
   value: Object | null;
@@ -9,11 +11,16 @@ interface ISelectAutoComplete {
 }
 
 function SelectAutoComplete({
+  isAuxSelect = false,
   options,
   label,
   value,
   handleChange,
 }: ISelectAutoComplete) {
+  const selectAutoCompleteStyles = classNames(styles.selectAutoComplete, {
+    [styles.auxSelect]: isAuxSelect === true,
+  });
+
   return (
     <Autocomplete
       disablePortal
@@ -22,7 +29,7 @@ function SelectAutoComplete({
       value={value}
       onChange={handleChange}
       data-testid='selectautocomplete'
-      className={styles.selectAutoComplete}
+      className={selectAutoCompleteStyles}
     />
   );
 }
