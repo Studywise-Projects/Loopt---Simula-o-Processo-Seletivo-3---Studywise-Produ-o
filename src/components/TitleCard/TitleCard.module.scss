@@ -1,0 +1,52 @@
+@import '@/_global.scss';
+
+.card {
+  display: flex;
+  border-radius: 8px;
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.10);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-height: min-content;
+  flex: 1;
+
+  @media only screen and (min-width: 768px) {
+    padding: 24px;
+    width: auto;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+
+  @media only screen and (min-width: 768px) {
+    width: 320px;
+  }
+}
+
+.actions {
+  display: flex;
+  flex: 1;
+  gap: 16px;
+  padding: 8px 24px 24px 24px;
+  flex-direction: row-reverse;
+  
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 24px;
+    text-align: right;
+  }
+}
+
+.actionsSimple {
+  display: flex;
+  flex: 1;
+  gap: 16px;
+  padding: 8px 24px 24px 24px;
+
+  @media only screen and (min-width: 768px){
+    display: none;
+  }
+}
