@@ -22,7 +22,7 @@ function Logo({ variant }: ILogo) {
           alt='Logo da Loopt'
           width={320}
           height={120}
-          className={styles.logoHorizontal}
+          className={styles.logoVertical}
         />
       )}
     </>
