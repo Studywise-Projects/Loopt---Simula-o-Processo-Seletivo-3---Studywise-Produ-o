@@ -15,7 +15,7 @@ function Header({ icon, text, handleClick }: IHeader) {
       <Toolbar className={styles.toolbar}>
         <IconButton
           onClick={handleClick}
-          data-testId='header'
+          data-test-id='header'
           className={styles.iconButton}
         >
           {icon}

@@ -27,7 +27,7 @@ function Button({
     <>
       {isLoading === false ? (
         <ButtonMui
-          data-testid='button'
+          data-test-id='button'
           variant={variant}
           onClick={handleClick}
           className={buttonStyles}

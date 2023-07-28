@@ -28,7 +28,7 @@ function Input({
       type={type}
       value={value}
       onChange={handleChange}
-      data-testId='input'
+      data-test-id='input'
       className={styles.input}
     />
   );

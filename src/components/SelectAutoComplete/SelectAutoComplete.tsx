@@ -6,8 +6,8 @@ interface ISelectAutoComplete {
   isAuxSelect?: boolean;
   options: any;
   label: string;
-  value: Object | null;
-  handleChange: () => void;
+  value: any;
+  handleChange: any;
 }
 
 function SelectAutoComplete({
@@ -28,7 +28,7 @@ function SelectAutoComplete({
       renderInput={(params) => <TextField {...params} label={label} />}
       value={value}
       onChange={handleChange}
-      data-testid='selectautocomplete'
+      data-test-id='selectautocomplete'
       className={selectAutoCompleteStyles}
     />
   );

@@ -39,7 +39,7 @@ describe('Header', () => {
       />,
     );
 
-    wrapper.find('[data-testId="header"]').simulate('click');
+    wrapper.find('[data-test-id="header"]').simulate('click');
 
     expect(handleClickMock).toHaveBeenCalledTimes(1);
   });

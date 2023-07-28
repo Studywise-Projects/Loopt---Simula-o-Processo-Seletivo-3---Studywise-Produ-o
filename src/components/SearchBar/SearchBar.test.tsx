@@ -29,7 +29,7 @@ describe('SearchBar', () => {
       />,
     );
 
-    wrapper.find('[data-testId="searchbar"]').simulate('change', 'Test');
+    wrapper.find('[data-test-id="searchbar"]').simulate('change', 'Test');
 
     expect(handleChangeMock).toBeCalledWith('Test');
   });

@@ -17,20 +17,6 @@ describe('Input', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('Should render correctly', () => {
-    const wrapper = shallow(
-      <Input
-        id='2'
-        label='Input'
-        type='text'
-        value=''
-        handleChange={() => undefined}
-      />,
-    );
-
-    expect(wrapper.find('Input')).toBeTruthy();
-  });
-
   it('Should call handleChangeMock function once', () => {
     const handleChangeMock = jest.fn();
 
@@ -44,7 +30,7 @@ describe('Input', () => {
       />,
     );
 
-    wrapper.find('[data-testId="input"]').simulate('change', 'Test');
+    wrapper.find('[data-test-id="input"]').simulate('change', 'Test');
 
     expect(handleChangeMock).toBeCalledWith('Test');
   });

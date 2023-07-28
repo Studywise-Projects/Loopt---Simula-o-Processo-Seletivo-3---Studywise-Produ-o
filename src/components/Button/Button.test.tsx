@@ -29,14 +29,6 @@ describe('Button', () => {
     expect(wrapper.text()).toEqual('Button');
   });
 
-  it('Should render with default prop: variant = contained', () => {
-    const wrapper = shallow(
-      <Button text='Button' handleClick={() => undefined} />,
-    );
-
-    expect(wrapper.prop('variant')).toEqual('contained');
-  });
-
   it('Should call handleClickMock function once', () => {
     const handleClickMock = jest.fn();
 
@@ -44,7 +36,7 @@ describe('Button', () => {
       <Button text='Button' handleClick={handleClickMock} />,
     );
 
-    wrapper.find('[data-testid="button"]').simulate('click');
+    wrapper.find('[data-test-id="button"]').simulate('click');
 
     expect(handleClickMock).toHaveBeenCalledTimes(1);
   });

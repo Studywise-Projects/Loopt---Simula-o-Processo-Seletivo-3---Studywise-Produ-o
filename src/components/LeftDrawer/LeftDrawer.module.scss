@@ -1,4 +1,4 @@
-@import '@/_global.scss';
+@import '@/styles/_global.scss';
 
 .swipeableDrawer {
   padding: 32px;
@@ -6,6 +6,7 @@
 
 .iconButton {
   color: $white;
+  padding: 0;
 }
 
 .link {

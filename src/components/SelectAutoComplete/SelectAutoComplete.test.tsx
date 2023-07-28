@@ -58,7 +58,7 @@ describe('SelectAutoComplete', () => {
     );
 
     wrapper
-      .find('[data-testid="selectautocomplete"]')
+      .find('[data-test-id="selectautocomplete"]')
       .simulate('change', 'Desenvolvedor Front-End');
 
     expect(onSelectMock).toHaveBeenCalledWith('Desenvolvedor Front-End');

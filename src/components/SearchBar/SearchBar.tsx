@@ -1,20 +1,32 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { IconButton, Stack, TextField } from '@mui/material';
 import { ChangeEventHandler } from 'react';
+import classNames from 'classnames';
 import styles from './SearchBar.module.scss';
 
 interface ISearchBar {
+  isAuxSearch?: boolean;
   id: string;
   label: string;
   value: string;
   handleChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
 }
 
-function SearchBar({ id, label, value, handleChange }: ISearchBar) {
+function SearchBar({
+  isAuxSearch = false,
+  id,
+  label,
+  value,
+  handleChange,
+}: ISearchBar) {
+  const stackStyles = classNames(styles.stack, {
+    [styles.auxSearch]: isAuxSearch === true,
+  });
+
   return (
-    <Stack className={styles.stack}>
+    <Stack className={stackStyles}>
       <TextField
-        data-testId='searchbar'
+        data-test-id='searchbar'
         variant='standard'
         id={id}
         type='search'
