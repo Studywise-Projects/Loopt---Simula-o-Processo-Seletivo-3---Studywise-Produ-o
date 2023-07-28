@@ -10,7 +10,7 @@ describe('Typography', () => {
   });
 
   it('Should render with the correctly text', () => {
-    const wrapper = shallow(<Typography variant='title' text='title' />);
+    const wrapper = shallow(<Typography variant='titleBlue' text='title' />);
 
     expect(wrapper.text()).toBe('title');
   });

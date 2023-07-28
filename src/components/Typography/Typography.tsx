@@ -3,7 +3,14 @@ import classNames from 'classnames';
 import styles from './Typography.module.scss';
 
 interface ITypography {
-  variant: 'header' | 'title' | 'subtitle' | 'subtitle2' | 'body' | 'caption';
+  variant:
+    | 'header'
+    | 'titleBlack'
+    | 'titleBlue'
+    | 'subtitle'
+    | 'subtitle2'
+    | 'body'
+    | 'caption';
   text: string;
 }
 
