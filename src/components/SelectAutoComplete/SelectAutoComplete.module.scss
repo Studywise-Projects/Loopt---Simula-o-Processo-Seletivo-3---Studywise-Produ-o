@@ -1,14 +1,9 @@
-@import '@/_global.scss';
+@import '@/styles/_global.scss';
 
 .selectAutoComplete {
   border: none;
   border-color: $gray;
   height: 44px;
-  width: 320px;
-
-  @media only screen and (min-width: 768px) {
-    width: 420px;
-  }
 }
 
 .auxSelect {
