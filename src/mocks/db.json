@@ -2,31 +2,31 @@
   "jobs": [
     {
       "id": 1,
-      "name": "Desenvolvedor Front-End",
+      "label": "Desenvolvedor Front-End",
       "requirements": ["ReactJs", "NextJs", "CSS", "HTML"],
       "differentials": ["NuxtJs", "VueJs"]
     },
     {
       "id": 2,
-      "name": "Desenvolvedor Back-End",
+      "label": "Desenvolvedor Back-End",
       "requirements": ["Django", "Python", "Django REST Framework"],
       "differentials": ["Flask"]
     },
     {
       "id": 3,
-      "name": "Desenvolvedor Full-Stack",
+      "label": "Desenvolvedor Full-Stack",
       "requirements": ["ReactJs", "Angular", "Django"],
       "differentials": ["Flask", "VueJs"]
     },
     {
       "id": 2,
-      "name": "Designer Figma",
+      "label": "Designer Figma",
       "requirements": ["Figma", "UX/UI"],
       "differentials": ["Abobe XD"]
     },
     {
       "id": 2,
-      "name": "Banco de Talentos",
+      "label": "Banco de Talentos",
       "requirements": "",
       "differentials": ""
     }
@@ -481,6 +481,26 @@
       "skills": ["UX/UI", "Figma", "Adobe XD"],
       "jobId": 4,
       "approved": false
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "gfernandes",
+      "password": "ZGV2bG9vcHRAMjAyMw==",
+      "loggedIn": false
+    },
+    {
+      "id": 2,
+      "username": "hheine",
+      "password": "bG9vcHRAMjAyMw==",
+      "loggedIn": false
+    },
+    {
+      "id": 3,
+      "username": "jgutierres",
+      "password": "MjAyM0Bsb29wdA==",
+      "loggedIn": false
     }
   ]
 }
