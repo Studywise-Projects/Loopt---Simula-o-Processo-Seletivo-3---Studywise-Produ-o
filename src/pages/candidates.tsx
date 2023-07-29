@@ -9,6 +9,7 @@ import useGetCandidates from '@/services/api/useGetCandidates';
 import shuffleCandidates from '@/utils/shuffleCandidates';
 import JobDetailsCard from '@/components/JobDetailsCard/JobDetailsCard';
 import { ICandidate } from '@/interfaces/ICandidate';
+import searchCandidate from '@/utils/searchCandidate';
 
 function Candidates() {
   const [randomCandidates, setRandomCandidates]: any = useState();
@@ -55,12 +56,19 @@ function Candidates() {
           actionCaption='Clique aqui para ver outros candidatos'
           actionButtonText='Embaralhar'
           handleClick={() => {
-            setRandomCandidates(shuffleCandidates(candidates, 5));
+            setRandomCandidates(
+              shuffleCandidates(candidates, selectedJob.id, 5),
+            );
           }}
         />
         <Stack className={styles.candidatesContainer}>
           <CandidatesCard
-            candidates={randomCandidates}
+            candidates={searchCandidate(
+              search,
+              selectedJob,
+              candidates,
+              randomCandidates,
+            )}
             handleClick={() => console.log(search)}
           />
           <JobDetailsCard
