@@ -7,6 +7,7 @@ import useCandidatesStore from '@/stores/candidates';
 import { useEffect, useState } from 'react';
 import useGetCandidates from '@/services/api/useGetCandidates';
 import shuffleCandidates from '@/utils/shuffleCandidates';
+import Footer from '@/components/Footer/Footer';
 
 function Candidates() {
   const [jobs, selectedJob, setSelectedJob] = useJobsStore((state) => [
@@ -43,7 +44,7 @@ function Candidates() {
       <Stack className={styles.contentContainer}>
         <TitleCard
           title={selectedJob.label}
-          caption={`candidatos (5 estão sendo exibidos atualmente)`}
+          caption={`${candidates.length} candidatos (5 estão sendo exibidos)`}
           actionCaption='Clique aqui para ver outros candidatos'
           actionButtonText='Embaralhar'
           handleClick={() => {
@@ -57,6 +58,7 @@ function Candidates() {
           />
         </Stack>
       </Stack>
+      <Footer />
     </Stack>
   );
 }
