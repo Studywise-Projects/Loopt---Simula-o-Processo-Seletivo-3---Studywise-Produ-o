@@ -3,5 +3,5 @@ module.exports = {
   setupFiles: ['<rootDir>/jest.setup.js'],
   moduleNameMapper: {
     "^.+\\.(css|less|scss)$": "babel-jest"
-  }
+  },
 }
