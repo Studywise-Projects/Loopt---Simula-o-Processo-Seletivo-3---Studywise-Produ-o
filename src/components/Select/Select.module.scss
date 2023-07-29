@@ -1,0 +1,15 @@
+@import '@/styles/_global.scss';
+
+.select {
+  height: 44px;
+  text-align: left;
+  width: 320px;
+
+  @media only screen and (min-width: 1024px) {
+    width: 420px;
+  }
+}
+
+.menuItem {
+  justify-content: flex-start;
+}
