@@ -4,13 +4,20 @@ import styles from './CandidatesCard.module.scss';
 import Image from 'next/image';
 import { ICandidate } from '../../interfaces/ICandidate';
 import formatArrayToString from '../../utils/formatArrayToString';
+import useCandidatesStore from '../../stores/candidates';
+import { useRouter } from 'next/router';
 
 interface ICandidatesCard {
   candidates: Array<ICandidate>;
-  handleClick: () => void;
 }
 
-function CandidatesCard({ candidates, handleClick }: ICandidatesCard) {
+function CandidatesCard({ candidates }: ICandidatesCard) {
+  const setSelectedCandidate = useCandidatesStore(
+    (state) => state.setSelectedCandidate,
+  );
+
+  const router = useRouter();
+
   return (
     <Card className={styles.card}>
       <CardContent className={styles.cardContent}>
@@ -20,7 +27,10 @@ function CandidatesCard({ candidates, handleClick }: ICandidatesCard) {
               data-testid='candidates-card'
               key={candidate.id}
               className={styles.cardCandidate}
-              onClick={handleClick}
+              onClick={() => {
+                setSelectedCandidate(candidate);
+                router.push(`candidates/${candidate.id}`);
+              }}
             >
               <Box className={styles.cardHighlight}>
                 <Image
