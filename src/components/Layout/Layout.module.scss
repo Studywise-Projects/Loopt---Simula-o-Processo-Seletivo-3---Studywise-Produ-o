@@ -13,8 +13,11 @@
 }
 
 .basic {
+  align-items: center;
   flex-direction: column;
   height: 100%;
+  justify-content: center;
   overflow-y: hidden;
+  position: fixed;
   width: 100%;
 }

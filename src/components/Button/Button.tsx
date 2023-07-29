@@ -6,6 +6,7 @@ import classNames from 'classnames';
 export interface IButton {
   variant?: 'contained' | 'text' | 'outlined';
   isAuxButton?: boolean;
+  isSecondaryButton?: boolean;
   isLoading?: boolean;
   text: string;
   handleClick: () => void;
@@ -14,6 +15,7 @@ export interface IButton {
 function Button({
   variant = 'contained',
   isAuxButton = false,
+  isSecondaryButton = false,
   isLoading = false,
   text,
   handleClick,
@@ -21,6 +23,7 @@ function Button({
   const buttonStyles = classNames(styles.button, {
     [styles[variant]]: variant,
     [styles.auxButton]: isAuxButton === true,
+    [styles.secondaryButton]: isSecondaryButton === true,
   });
 
   return (

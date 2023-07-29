@@ -16,6 +16,11 @@
   max-width: min-content;
 }
 
+.secondaryButton {
+  background-color: $gray;
+  color: $black;
+}
+
 .contained {
   background-color: $primary-color;
   color: $white;
