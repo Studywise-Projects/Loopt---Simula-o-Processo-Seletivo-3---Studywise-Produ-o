@@ -1,21 +1,15 @@
 import useCandidatesStore from '@/stores/candidates';
-import useJobsStore from '@/stores/jobs';
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
 function useGetCandidates() {
-  const selectedJob = useJobsStore((state) => state.selectedJob);
   const setCandidates = useCandidatesStore((state) => state.setCandidates);
 
   return useQuery(
     'getCandidates',
     () => {
       axios
-        .get('http://localhost:5000/candidates', {
-          params: {
-            jobId: selectedJob.id,
-          },
-        })
+        .get('http://localhost:5000/candidates')
         .then((res) => {
           setCandidates(res.data);
         })
