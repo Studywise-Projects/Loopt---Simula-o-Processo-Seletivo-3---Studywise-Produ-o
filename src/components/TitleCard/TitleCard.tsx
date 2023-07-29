@@ -24,7 +24,7 @@ function TitleCard({
       {variant === 'withAction' ? (
         <Card className={styles.card}>
           <Box className={styles.content}>
-            <Typography variant='title' text={title} />
+            <Typography variant='titleBlack' text={title} />
             <Typography variant='caption' text={caption} />
           </Box>
           <CardActions className={styles.actions}>
@@ -39,7 +39,7 @@ function TitleCard({
       ) : (
         <Card className={styles.card}>
           <Box className={styles.content}>
-            <Typography variant='title' text={title} />
+            <Typography variant='titleBlack' text={title} />
             <Typography variant='caption' text={caption} />
           </Box>
           <CardActions className={styles.actionsSimple}>

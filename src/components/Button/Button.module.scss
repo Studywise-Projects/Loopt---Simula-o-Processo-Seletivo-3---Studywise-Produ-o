@@ -13,8 +13,7 @@
 }
 
 .auxButton {
-  flex: 1;
-  width: auto;
+  max-width: min-content;
 }
 
 .contained {

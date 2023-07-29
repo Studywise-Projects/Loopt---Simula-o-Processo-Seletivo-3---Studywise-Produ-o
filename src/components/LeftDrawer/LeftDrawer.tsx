@@ -20,7 +20,7 @@ import Link from 'next/link';
 interface ILeftDrawer {
   optionsSelect: any;
   valueSelect: Object | null;
-  handleChangeSelect: () => void;
+  handleChangeSelect: any;
 }
 
 function LeftDrawer({
