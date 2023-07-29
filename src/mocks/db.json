@@ -27,8 +27,8 @@
     {
       "id": 5,
       "label": "Banco de Talentos",
-      "requirements": "",
-      "differentials": ""
+      "requirements": ["Desenvolvedor", "Designer", "Analista de Suporte"],
+      "differentials": ["Inglês", "Espanhol"]
     }
   ],
   "candidates": [
