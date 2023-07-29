@@ -1,0 +1,15 @@
+@import '@/styles/_global.scss';
+
+.footer {
+  align-items: center;
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.10);
+  position: static;
+  background-color: $white;
+  height: 60px;
+  justify-content: center;
+  width: 100%;
+
+  @media only screen and (min-width: 1024px) {
+    height: 70px;
+  }
+}
