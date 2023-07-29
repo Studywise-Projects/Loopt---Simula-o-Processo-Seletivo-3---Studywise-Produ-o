@@ -7,7 +7,6 @@ import useCandidatesStore from '@/stores/candidates';
 import { useEffect, useState } from 'react';
 import useGetCandidates from '@/services/api/useGetCandidates';
 import shuffleCandidates from '@/utils/shuffleCandidates';
-import { ICandidate } from '@/interfaces/ICandidate';
 
 function Candidates() {
   const [jobs, selectedJob, setSelectedJob] = useJobsStore((state) => [
@@ -27,7 +26,7 @@ function Candidates() {
   useEffect(() => {
     refetch();
     setRandomCandidates(shuffleCandidates(candidates, 5));
-  }, []);
+  }, [randomCandidates === undefined]);
 
   return (
     <Stack className={styles.main}>
