@@ -1,11 +1,5 @@
 import { create } from 'zustand';
-
-interface IJob {
-  id: number;
-  label: string;
-  requirements: Array<string>;
-  differentials: Array<string>;
-}
+import { IJob } from '@/interfaces/IJob';
 
 type State = {
   jobs: [IJob];
