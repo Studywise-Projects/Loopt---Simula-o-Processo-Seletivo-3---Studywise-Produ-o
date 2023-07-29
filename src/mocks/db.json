@@ -19,13 +19,13 @@
       "differentials": ["Flask", "VueJs"]
     },
     {
-      "id": 2,
+      "id": 4,
       "label": "Designer Figma",
       "requirements": ["Figma", "UX/UI"],
       "differentials": ["Abobe XD"]
     },
     {
-      "id": 2,
+      "id": 5,
       "label": "Banco de Talentos",
       "requirements": "",
       "differentials": ""
