@@ -1,9 +1,9 @@
 import { Box, Card, CardContent, Divider, Stack } from '@mui/material';
-import { Button, Typography } from '@/components/index';
+import Typography from '../Typography/Typography';
 import styles from './CandidatesCard.module.scss';
 import Image from 'next/image';
-import { ICandidate } from '@/interfaces/ICandidate';
-import formatArrayToString from '@/utils/formatArrayToString';
+import { ICandidate } from '../../interfaces/ICandidate';
+import formatArrayToString from '../../utils/formatArrayToString';
 
 interface ICandidatesCard {
   candidates: Array<ICandidate>;
@@ -17,6 +17,7 @@ function CandidatesCard({ candidates, handleClick }: ICandidatesCard) {
         {candidates?.map((candidate: ICandidate) => (
           <>
             <Stack
+              data-testid='candidates-card'
               key={candidate.id}
               className={styles.cardCandidate}
               onClick={handleClick}
@@ -38,7 +39,7 @@ function CandidatesCard({ candidates, handleClick }: ICandidatesCard) {
                 <Typography variant='subtitle2' text='Habilidades' />
                 <Typography
                   variant='caption'
-                  text={formatArrayToString(candidate.skills, 0, 30)}
+                  text={formatArrayToString(candidate.skills, 0, 25)}
                 />
               </Box>
             </Stack>
