@@ -2,6 +2,7 @@ import useAuthStore from '@/stores/auth';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
+import useGetCandidates from './useGetCandidates';
 
 function usePostLogin() {
   const [username, password, setLoggedIn] = useAuthStore((state) => [
