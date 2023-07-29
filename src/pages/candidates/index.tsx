@@ -9,7 +9,7 @@ import useGetCandidates from '@/services/api/useGetCandidates';
 import shuffleCandidates from '@/utils/shuffleCandidates';
 import JobDetailsCard from '@/components/JobDetailsCard/JobDetailsCard';
 import searchCandidate from '@/utils/searchCandidate';
-import { useRouter } from 'next/router';
+import statsCandidates from '@/utils/statsCandidates';
 
 function Candidates() {
   const [randomCandidates, setRandomCandidates]: any = useState();
@@ -27,7 +27,16 @@ function Candidates() {
 
   const candidates = useCandidatesStore((state) => state.candidates);
 
-  const router = useRouter();
+  const candidatesTotal = statsCandidates(
+    candidates,
+    selectedJob.id,
+    'countTotal',
+  );
+  const approvedsTotal = statsCandidates(
+    candidates,
+    selectedJob.id,
+    'countApproveds',
+  );
 
   const { refetch } = useGetCandidates();
 
@@ -51,16 +60,14 @@ function Candidates() {
       <Stack className={styles.contentContainer}>
         <TitleCard
           title={selectedJob.label}
-          caption={`${
-            candidates.filter((candidate) => candidate.jobId === selectedJob.id)
-              .length
-          } candidatos (5 estão sendo exibidos)`}
+          caption={`${candidatesTotal} candidatos.`}
           actionCaption='Clique aqui para ver outros candidatos'
           actionButtonText='Embaralhar'
           handleClick={() => {
             setRandomCandidates(
               shuffleCandidates(candidates, selectedJob.id, 5),
             );
+            console.log(approvedsTotal);
           }}
         />
         <Stack className={styles.candidatesContainer}>

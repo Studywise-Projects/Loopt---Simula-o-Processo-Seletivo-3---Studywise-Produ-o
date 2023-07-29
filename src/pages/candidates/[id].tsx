@@ -6,12 +6,18 @@ import formatArrayToString from '@/utils/formatArrayToString';
 import { Box, Stack } from '@mui/material';
 import Image from 'next/image';
 import styles from '@/styles/pages/chosenCandidate.module.scss';
+import usePatchCandidate from '@/services/api/usePatchCandidate';
+import { useRouter } from 'next/router';
 
 function ChosenCandidate() {
   const selectedJob = useJobsStore((state) => state.selectedJob);
   const selectedCandidate = useCandidatesStore(
     (state) => state.selectedCandidate,
   );
+
+  const { refetch } = usePatchCandidate(selectedCandidate.id);
+
+  const router = useRouter();
 
   return (
     <Layout variant='basic'>
@@ -42,13 +48,16 @@ function ChosenCandidate() {
         <Box className={styles.buttons}>
           <Button
             text='Voltar'
-            handleClick={() => undefined}
+            handleClick={() => router.back()}
             isAuxButton={true}
             isSecondaryButton={true}
           />
           <Button
             text='Confirmar'
-            handleClick={() => undefined}
+            handleClick={() => {
+              refetch();
+              router.back();
+            }}
             isAuxButton={true}
           />
         </Box>
