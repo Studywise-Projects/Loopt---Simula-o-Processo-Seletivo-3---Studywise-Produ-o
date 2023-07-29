@@ -36,7 +36,7 @@
       "id": 1,
       "name": "Ana Silva",
       "age": 22,
-      "picture": "/public/assets/img/profile-pictures/01w.jpg",
+      "picture": "/assets/img/profile-pictures/01w.jpg",
       "skills": ["ReactJs", "NextJs", "JavaScript"],
       "jobId": 1,
       "approved": false
@@ -45,7 +45,7 @@
       "id": 2,
       "name": "Pedro Santos",
       "age": 24,
-      "picture": "/public/assets/img/profile-pictures/02m.jpg",
+      "picture": "/assets/img/profile-pictures/02m.jpg",
       "skills": ["ReactJs", "NextJs", "JavaScript"],
       "jobId": 1,
       "approved": false
@@ -54,7 +54,7 @@
       "id": 3,
       "name": "Marina Costa",
       "age": 33,
-      "picture": "/public/assets/img/profile-pictures/03w.jpg",
+      "picture": "/assets/img/profile-pictures/03w.jpg",
       "skills": ["ReactJs", "Java", "Kotlin"],
       "jobId": 1,
       "approved": false
@@ -63,7 +63,7 @@
       "id": 4,
       "name": "Gabriel Oliveira",
       "age": 32,
-      "picture": "/public/assets/img/profile-pictures/08m.jpg",
+      "picture": "/assets/img/profile-pictures/08m.jpg",
       "skills": ["Angular", "VueJs", "Python"],
       "jobId": 1,
       "approved": false
@@ -72,7 +72,7 @@
       "id": 5,
       "name": "Carolina Rocha",
       "age": 38,
-      "picture": "/public/assets/img/profile-pictures/04w.jpg",
+      "picture": "/assets/img/profile-pictures/04w.jpg",
       "skills": ["ReactJs", "TypeScript", "JavaScript"],
       "jobId": 1,
       "approved": false
@@ -81,7 +81,7 @@
       "id": 6,
       "name": "Lucas Almeida",
       "age": 27,
-      "picture": "/public/assets/img/profile-pictures/10m.jpg",
+      "picture": "/assets/img/profile-pictures/10m.jpg",
       "skills": ["Angular", "SASS", "Less"],
       "jobId": 1,
       "approved": false
@@ -90,7 +90,7 @@
       "id": 7,
       "name": "Isabela Fernandes",
       "age": 21,
-      "picture": "/public/assets/img/profile-pictures/07w.jpg",
+      "picture": "/assets/img/profile-pictures/07w.jpg",
       "skills": ["NuxtJs", "NextJs", "CSS"],
       "jobId": 1,
       "approved": false
@@ -99,7 +99,7 @@
       "id": 8,
       "name": "Rafael Lima",
       "age": 20,
-      "picture": "/public/assets/img/profile-pictures/11m.jpg",
+      "picture": "/assets/img/profile-pictures/11m.jpg",
       "skills": ["ReactJs", "NextJs", "JavaScript"],
       "jobId": 1,
       "approved": false
@@ -108,7 +108,7 @@
       "id": 9,
       "name": "Beatriz Castro",
       "age": 29,
-      "picture": "/public/assets/img/profile-pictures/06w.jpg",
+      "picture": "/assets/img/profile-pictures/06w.jpg",
       "skills": ["React Native", "Kotlin", "TypeScript"],
       "jobId": 1,
       "approved": false
@@ -117,7 +117,7 @@
       "id": 10,
       "name": "Matheus Rodrigues",
       "age": 35,
-      "picture": "/public/assets/img/profile-pictures/13m.jpg",
+      "picture": "/assets/img/profile-pictures/13m.jpg",
       "skills": ["React Native", "ReactJs", "TypeScript"],
       "jobId": 1,
       "approved": false
@@ -126,7 +126,7 @@
       "id": 11,
       "name": "Mariana Ribeiro",
       "age": 28,
-      "picture": "/public/assets/img/profile-pictures/09w.jpg",
+      "picture": "/assets/img/profile-pictures/09w.jpg",
       "skills": ["Spring Boot", " Laravel", "Django"],
       "jobId": 2,
       "approved": false
@@ -135,7 +135,7 @@
       "id": 12,
       "name": "Thiago Barbosa",
       "age": 22,
-      "picture": "/public/assets/img/profile-pictures/14m.jpg",
+      "picture": "/assets/img/profile-pictures/14m.jpg",
       "skills": ["Django", "Flask", "Ruby"],
       "jobId": 2,
       "approved": false
@@ -144,7 +144,7 @@
       "id": 13,
       "name": "Camila Pereira",
       "age": 36,
-      "picture": "/public/assets/img/profile-pictures/15w.jpg",
+      "picture": "/assets/img/profile-pictures/15w.jpg",
       "skills": ["CakePHP", "ExpressJs", "ASP .NET"],
       "jobId": 2,
       "approved": false
@@ -153,7 +153,7 @@
       "id": 14,
       "name": "Gustavo Cardoso",
       "age": 21,
-      "picture": "/public/assets/img/profile-pictures/19m.jpg",
+      "picture": "/assets/img/profile-pictures/19m.jpg",
       "skills": ["ExpressJs", "Python", "Flask"],
       "jobId": 2,
       "approved": false
@@ -162,7 +162,7 @@
       "id": 15,
       "name": "Júlia Santos",
       "age": 34,
-      "picture": "/public/assets/img/profile-pictures/16w.jpg",
+      "picture": "/assets/img/profile-pictures/16w.jpg",
       "skills": ["Ruby", " Laravel", "Phoenix"],
       "jobId": 2,
       "approved": false
@@ -171,7 +171,7 @@
       "id": 16,
       "name": "Leonardo Costa",
       "age": 39,
-      "picture": "/public/assets/img/profile-pictures/26m.jpg",
+      "picture": "/assets/img/profile-pictures/26m.jpg",
       "skills": ["Django", "Flask", "Python"],
       "jobId": 2,
       "approved": false
@@ -180,7 +180,7 @@
       "id": 17,
       "name": "Letícia Ferreira",
       "age": 42,
-      "picture": "/public/assets/img/profile-pictures/17w.jpg",
+      "picture": "/assets/img/profile-pictures/17w.jpg",
       "skills": ["Laravel", "Django", "CakePHP"],
       "jobId": 2,
       "approved": false
@@ -189,7 +189,7 @@
       "id": 18,
       "name": "André Alves",
       "age": 23,
-      "picture": "/public/assets/img/profile-pictures/27m.jpg",
+      "picture": "/assets/img/profile-pictures/27m.jpg",
       "skills": ["Flask", "Koa", "Laravel"],
       "jobId": 2,
       "approved": false
@@ -198,7 +198,7 @@
       "id": 19,
       "name": "Fernanda Rocha",
       "age": 33,
-      "picture": "/public/assets/img/profile-pictures/18w.jpg",
+      "picture": "/assets/img/profile-pictures/18w.jpg",
       "skills": ["ASP .NET", "Spring Boot", "Phoenix"],
       "jobId": 2,
       "approved": false
@@ -207,7 +207,7 @@
       "id": 20,
       "name": "Bruno Oliveira",
       "age": 45,
-      "picture": "/public/assets/img/profile-pictures/28m.jpg",
+      "picture": "/assets/img/profile-pictures/28m.jpg",
       "skills": ["Flask", "Django", "Python"],
       "jobId": 2,
       "approved": false
@@ -216,7 +216,7 @@
       "id": 21,
       "name": "Luiza Torres",
       "age": 22,
-      "picture": "/public/assets/img/profile-pictures/20w.jpg",
+      "picture": "/assets/img/profile-pictures/20w.jpg",
       "skills": ["ReactJs", "Django", "React Native"],
       "jobId": 3,
       "approved": false
@@ -225,7 +225,7 @@
       "id": 22,
       "name": "Felipe Castro",
       "age": 31,
-      "picture": "/public/assets/img/profile-pictures/31m.jpg",
+      "picture": "/assets/img/profile-pictures/31m.jpg",
       "skills": ["Flask", "Laravel", "Angular"],
       "jobId": 3,
       "approved": false
@@ -234,7 +234,7 @@
       "id": 23,
       "name": "Manuela Carvalho",
       "age": 34,
-      "picture": "/public/assets/img/profile-pictures/21w.jpg",
+      "picture": "/assets/img/profile-pictures/21w.jpg",
       "skills": ["React Native", "Kotlin", "Java"],
       "jobId": 3,
       "approved": false
@@ -243,7 +243,7 @@
       "id": 24,
       "name": "Matheus Gomes",
       "age": 36,
-      "picture": "/public/assets/img/profile-pictures/32m.jpg",
+      "picture": "/assets/img/profile-pictures/32m.jpg",
       "skills": ["NextJs", "ReactJs", "ExpressJs"],
       "jobId": 3,
       "approved": false
@@ -252,7 +252,7 @@
       "id": 25,
       "name": "Giovanna Lima",
       "age": 30,
-      "picture": "/public/assets/img/profile-pictures/22w.jpg",
+      "picture": "/assets/img/profile-pictures/22w.jpg",
       "skills": ["CakePHP", "PHP", "JavaScript"],
       "jobId": 3,
       "approved": false
@@ -261,7 +261,7 @@
       "id": 26,
       "name": "Guilherme Sousa",
       "age": 27,
-      "picture": "/public/assets/img/profile-pictures/34m.jpg",
+      "picture": "/assets/img/profile-pictures/34m.jpg",
       "skills": ["Python", "TypeScript", "Flask"],
       "jobId": 3,
       "approved": false
@@ -270,7 +270,7 @@
       "id": 27,
       "name": "Isabela Santos",
       "age": 25,
-      "picture": "/public/assets/img/profile-pictures/23w.jpg",
+      "picture": "/assets/img/profile-pictures/23w.jpg",
       "skills": ["NuxtJs", "VueJs", "TypeScript"],
       "jobId": 3,
       "approved": false
@@ -279,7 +279,7 @@
       "id": 28,
       "name": "Rafaela Costa",
       "age": 37,
-      "picture": "/public/assets/img/profile-pictures/24w.jpg",
+      "picture": "/assets/img/profile-pictures/24w.jpg",
       "skills": ["NextJs", "NuxtJs", "Phoenix"],
       "jobId": 3,
       "approved": false
@@ -288,7 +288,7 @@
       "id": 29,
       "name": "Lucas Rocha",
       "age": 21,
-      "picture": "/public/assets/img/profile-pictures/36m.jpg",
+      "picture": "/assets/img/profile-pictures/36m.jpg",
       "skills": ["NuxtJs", "VueJs", "TypeScript"],
       "jobId": 3,
       "approved": false
@@ -297,7 +297,7 @@
       "id": 30,
       "name": "Carolina Oliveira",
       "age": 20,
-      "picture": "/public/assets/img/profile-pictures/25w.jpg",
+      "picture": "/assets/img/profile-pictures/25w.jpg",
       "skills": ["ReactJs", "Django", "Flask"],
       "jobId": 3,
       "approved": false
@@ -306,7 +306,7 @@
       "id": 31,
       "name": "Enzo Ferreira",
       "age": 32,
-      "picture": "/public/assets/img/profile-pictures/45m.jpg",
+      "picture": "/assets/img/profile-pictures/45m.jpg",
       "skills": ["UX/UI", "Figma"],
       "jobId": 4,
       "approved": false
@@ -315,7 +315,7 @@
       "id": 32,
       "name": "Sophia Almeida",
       "age": 21,
-      "picture": "/public/assets/img/profile-pictures/29w.jpg",
+      "picture": "/assets/img/profile-pictures/29w.jpg",
       "skills": ["UX/UI", "Adobe XD", "Adobe Illustrator"],
       "jobId": 4,
       "approved": false
@@ -324,7 +324,7 @@
       "id": 33,
       "name": "Miguel Pereira",
       "age": 30,
-      "picture": "/public/assets/img/profile-pictures/48m.jpg",
+      "picture": "/assets/img/profile-pictures/48m.jpg",
       "skills": ["UX/UI", "Figma", "Adobe XD"],
       "jobId": 4,
       "approved": false
@@ -333,7 +333,7 @@
       "id": 34,
       "name": "Laura Rodrigues",
       "age": 29,
-      "picture": "/public/assets/img/profile-pictures/30w.jpg",
+      "picture": "/assets/img/profile-pictures/30w.jpg",
       "skills": ["UX/UI", "Figma"],
       "jobId": 4,
       "approved": false
@@ -342,7 +342,7 @@
       "id": 35,
       "name": "Pedro Martins",
       "age": 37,
-      "picture": "/public/assets/img/profile-pictures/51m.jpg",
+      "picture": "/assets/img/profile-pictures/51m.jpg",
       "skills": ["Figma", "Adobe Photoshop"],
       "jobId": 4,
       "approved": false
@@ -351,7 +351,7 @@
       "id": 36,
       "name": "Valentina Ribeiro",
       "age": 23,
-      "picture": "/public/assets/img/profile-pictures/33w.jpg",
+      "picture": "/assets/img/profile-pictures/33w.jpg",
       "skills": ["Figma", "Adobe XD", "Corel Draw"],
       "jobId": 4,
       "approved": false
@@ -360,7 +360,7 @@
       "id": 37,
       "name": "Arthur Lima",
       "age": 32,
-      "picture": "/public/assets/img/profile-pictures/52m.jpg",
+      "picture": "/assets/img/profile-pictures/52m.jpg",
       "skills": ["Figma"],
       "jobId": 4,
       "approved": false
@@ -369,7 +369,7 @@
       "id": 38,
       "name": "Gabriela Castro",
       "age": 24,
-      "picture": "/public/assets/img/profile-pictures/35w.jpg",
+      "picture": "/assets/img/profile-pictures/35w.jpg",
       "skills": ["Adobe XD", "Adobe Photoshop", "Adobe Illustrator"],
       "jobId": 4,
       "approved": false
@@ -378,7 +378,7 @@
       "id": 39,
       "name": "Lucas Barbosa",
       "age": 35,
-      "picture": "/public/assets/img/profile-pictures/53m.jpg",
+      "picture": "/assets/img/profile-pictures/53m.jpg",
       "skills": ["Figma", "UX/UI"],
       "jobId": 4,
       "approved": false
@@ -387,7 +387,7 @@
       "id": 40,
       "name": "Isabella Cardoso",
       "age": 39,
-      "picture": "/public/assets/img/profile-pictures/37w.jpg",
+      "picture": "/assets/img/profile-pictures/37w.jpg",
       "skills": ["UX/UI", "Figma"],
       "jobId": 4,
       "approved": false
@@ -396,7 +396,7 @@
       "id": 41,
       "name": "Rafaela Costa",
       "age": 33,
-      "picture": "/public/assets/img/profile-pictures/38w.jpg",
+      "picture": "/assets/img/profile-pictures/38w.jpg",
       "skills": ["ReactJs", "Django", "React Native"],
       "jobId": 4,
       "approved": false
@@ -405,7 +405,7 @@
       "id": 42,
       "name": "Mateus Fernandes",
       "age": 23,
-      "picture": "/public/assets/img/profile-pictures/54m.jpg",
+      "picture": "/assets/img/profile-pictures/54m.jpg",
       "skills": ["UX/UI", "Figma", "Adobe XD"],
       "jobId": 4,
       "approved": false
@@ -414,7 +414,7 @@
       "id": 43,
       "name": "Juliana Santos",
       "age": 33,
-      "picture": "/public/assets/img/profile-pictures/39w.jpg",
+      "picture": "/assets/img/profile-pictures/39w.jpg",
       "skills": ["VueJs", "NuxtJs", "React Native"],
       "jobId": 4,
       "approved": false
@@ -423,7 +423,7 @@
       "id": 44,
       "name": "Gabriel Oliveira",
       "age": 26,
-      "picture": "/public/assets/img/profile-pictures/55m.jpg",
+      "picture": "/assets/img/profile-pictures/55m.jpg",
       "skills": ["Laravel", "CakePHP", "ASP .NET"],
       "jobId": 4,
       "approved": false
@@ -432,7 +432,7 @@
       "id": 45,
       "name": "Manuela Silva",
       "age": 39,
-      "picture": "/public/assets/img/profile-pictures/40w.jpg",
+      "picture": "/assets/img/profile-pictures/40w.jpg",
       "skills": ["NuxtJs", "ReactJs", "UX/UI"],
       "jobId": 4,
       "approved": false
@@ -441,7 +441,7 @@
       "id": 46,
       "name": "André Almeida",
       "age": 41,
-      "picture": "/public/assets/img/profile-pictures/56m.jpg",
+      "picture": "/assets/img/profile-pictures/56m.jpg",
       "skills": ["Kotlin", "Java", "React Native"],
       "jobId": 4,
       "approved": false
@@ -450,7 +450,7 @@
       "id": 47,
       "name": "Isabela Ribeiro",
       "age": 26,
-      "picture": "/public/assets/img/profile-pictures/41w.jpg",
+      "picture": "/assets/img/profile-pictures/41w.jpg",
       "skills": ["ReactJs", "Flask", "JavaScript"],
       "jobId": 4,
       "approved": false
@@ -459,7 +459,7 @@
       "id": 48,
       "name": "Leonardo Pereira",
       "age": 21,
-      "picture": "/public/assets/img/profile-pictures/57m.jpg",
+      "picture": "/assets/img/profile-pictures/57m.jpg",
       "skills": ["TypeScript", "Python", "ExpressJs"],
       "jobId": 4,
       "approved": false
@@ -468,7 +468,7 @@
       "id": 49,
       "name": "Marina Rodrigues",
       "age": 37,
-      "picture": "/public/assets/img/profile-pictures/42w.jpg",
+      "picture": "/assets/img/profile-pictures/42w.jpg",
       "skills": ["Laravel", "CakePHP", "Koa"],
       "jobId": 4,
       "approved": false
@@ -477,7 +477,7 @@
       "id": 50,
       "name": "Lucas Souza",
       "age": 24,
-      "picture": "/public/assets/img/profile-pictures/58m.jpg",
+      "picture": "/assets/img/profile-pictures/58m.jpg",
       "skills": ["UX/UI", "Figma", "Adobe XD"],
       "jobId": 4,
       "approved": false
