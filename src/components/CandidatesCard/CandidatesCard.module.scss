@@ -1,0 +1,73 @@
+@import '@/styles/_global.scss';
+
+.card {
+  border-radius: 20px;
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.10);
+  width: 100%;
+
+  @media only screen and (min-width: 1024px) {
+    width: 65%;
+  }
+}
+
+.cardContent {
+  display: flex;
+  background-color: transparent;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+
+  @media only screen and (min-width: 1024px) {
+    background-color: $white;
+    border-radius: 20px;
+  }
+}
+
+.cardCandidate {
+  align-items: center;
+  border-radius: 20px;
+  padding: 16px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cardHighlight {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.profilePicture {
+  border-radius: 100%;
+}
+
+.highlightContent {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  
+  @media only screen and (min-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.skillsContent {
+  display: none;
+
+  @media only screen and (min-width: 768px) {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    width: 220px;
+  }
+}
+
+.divider {
+  align-self: center;
+  width: 70%;
+}

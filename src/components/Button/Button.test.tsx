@@ -3,7 +3,20 @@ import { shallow } from 'enzyme';
 import Button from './Button';
 
 describe('Button', () => {
-  it('Render Button correctly', () => {
+  it('Should match the snapshot', () => {
+    const wrapper = shallow(
+      <Button
+        variant='contained'
+        isAuxButton={false}
+        text='Button'
+        handleClick={() => undefined}
+      />,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('Should render correctly', () => {
     const wrapper = shallow(
       <Button
         variant='contained'
@@ -16,22 +29,14 @@ describe('Button', () => {
     expect(wrapper.text()).toEqual('Button');
   });
 
-  it('Render button with default prop: variant = contained', () => {
-    const wrapper = shallow(
-      <Button text='Button' handleClick={() => undefined} />,
-    );
-
-    expect(wrapper.prop('variant')).toEqual('contained');
-  });
-
-  it('Render button with default prop: isAuxButton = false', () => {
+  it('Should call handleClickMock function once', () => {
     const handleClickMock = jest.fn();
 
     const wrapper = shallow(
       <Button text='Button' handleClick={handleClickMock} />,
     );
 
-    wrapper.find('[data-testid="button"]').simulate('click');
+    wrapper.find('[data-test-id="button"]').simulate('click');
 
     expect(handleClickMock).toHaveBeenCalledTimes(1);
   });

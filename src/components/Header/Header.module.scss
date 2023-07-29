@@ -1,0 +1,19 @@
+@import '@/styles/_global.scss';
+
+.toolbar {
+  align-items: center;
+  background-color: $primary-color;
+  display: flex;
+  gap: 16px;
+  height: 60px;
+  padding-left: 16px;
+
+  @media only screen and (min-width: 768px) {
+    height: 70px;
+    padding-left: 32px;
+  }
+}
+
+.iconButton {
+  color: $white;
+}

@@ -1,0 +1,56 @@
+@import '@/styles/_global.scss';
+
+.typography {
+  color: $black;
+  line-height: 1.5;
+}
+
+.header {
+  color: $white;
+  font-size: 24px;
+  font-weight: 700;
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 32px;
+  }
+}
+
+.titleBlack {
+  font-size: 24px;
+  font-weight: 700;
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 32px;
+  } 
+}
+
+.titleBlue {
+  color: $primary-color;
+  font-size: 24px;
+  font-weight: 700;
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 32px;
+  } 
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 700;
+}
+ 
+.subtitle2 { 
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.body {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.caption {
+  color: $gray;
+  font-size: 14px;
+  font-weight: 400;
+}

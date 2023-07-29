@@ -1,0 +1,39 @@
+@import '@/styles/_global.scss';
+
+.swipeableDrawer {
+  padding: 32px;
+}
+
+.iconButton {
+  color: $white;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:active {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.listItem {
+  padding: 8px 0;
+}
+
+.listIcon {
+  color: $black;
+}
+
+.listIcon:active {
+  font-weight: 700;
+}
+
+.listText {
+  color: $black;
+}
+
+.listText:active {
+  font-weight: 700;
+}
