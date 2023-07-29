@@ -14,8 +14,8 @@ import StarIcon from '@mui/icons-material/Star';
 import PeopleIcon from '@mui/icons-material/People';
 import Logo from '../Logo/Logo';
 import styles from './LeftDrawer.module.scss';
-import SelectAutoComplete from '../SelectAutoComplete/SelectAutoComplete';
 import Link from 'next/link';
+import Select from '../Select/Select';
 
 interface ILeftDrawer {
   optionsSelect: any;
@@ -68,12 +68,13 @@ function LeftDrawer({
         }}
       >
         <Logo variant='horizontal' />
-        <SelectAutoComplete
-          options={optionsSelect}
+        <Select
+          id='select-leftdrawer'
           label='Vaga'
+          options={optionsSelect}
+          isAuxSelect={true}
           value={valueSelect}
           handleChange={handleChangeSelect}
-          isAuxSelect={true}
         />
         <List>
           <Link href='/' className={styles.link}>

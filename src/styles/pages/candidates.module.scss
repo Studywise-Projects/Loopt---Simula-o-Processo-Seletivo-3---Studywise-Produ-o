@@ -3,9 +3,8 @@
 .main {
   flex-direction: column;
   height: 100%;
-  position: fixed;
   margin-top: calc(60px + 16px);
-  overflow-y: scroll;
+  overflow-y: hidden;
   width: 100%;
 
   @media only screen and (min-width: 1024px) {
@@ -20,4 +19,9 @@
   @media only screen and (min-width: 1024px) {
     padding: 32px;
   }
+}
+
+.candidatesContainer {
+  flex-direction: row;
+  gap: 32px;
 }
