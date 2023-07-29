@@ -1,0 +1,23 @@
+@import '@/styles/_global.scss';
+
+.main {
+  flex-direction: column;
+  height: 100%;
+  position: fixed;
+  margin-top: calc(60px + 16px);
+  overflow-y: scroll;
+  width: 100%;
+
+  @media only screen and (min-width: 1024px) {
+    margin-top: calc(70px + 16px);
+  }
+}
+
+.contentContainer {
+  gap: 32px;
+  padding: 16px;
+
+  @media only screen and (min-width: 1024px) {
+    padding: 32px;
+  }
+}
