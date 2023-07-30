@@ -2,6 +2,7 @@ import { Button as ButtonMui } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import styles from './Button.module.scss';
 import classNames from 'classnames';
+import { KeyboardEventHandler, MouseEventHandler } from 'react';
 
 export interface IButton {
   variant?: 'contained' | 'text' | 'outlined';
@@ -9,7 +10,8 @@ export interface IButton {
   isSecondaryButton?: boolean;
   isLoading?: boolean;
   text: string;
-  handleClick: () => void;
+  handleClick: MouseEventHandler<HTMLButtonElement> | undefined;
+  handleKeyPress?: KeyboardEventHandler<HTMLButtonElement> | undefined;
 }
 
 function Button({
@@ -19,9 +21,10 @@ function Button({
   isLoading = false,
   text,
   handleClick,
+  handleKeyPress,
 }: IButton) {
   const buttonStyles = classNames(styles.button, {
-    [styles[variant]]: variant,
+    [styles[variant]]: variant && isSecondaryButton === false,
     [styles.auxButton]: isAuxButton === true,
     [styles.secondaryButton]: isSecondaryButton === true,
   });
@@ -33,6 +36,7 @@ function Button({
           data-test-id='button'
           variant={variant}
           onClick={handleClick}
+          onKeyDown={handleKeyPress}
           className={buttonStyles}
         >
           {text}

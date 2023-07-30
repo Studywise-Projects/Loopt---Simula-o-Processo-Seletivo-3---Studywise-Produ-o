@@ -85,9 +85,13 @@
 }
 
 .dividerContainer {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  display: none;
+
+  @media only screen and (min-width: 1024px) {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .dividerContainer:last-child {
@@ -95,6 +99,10 @@
 }
 
 .divider {
-  align-self: center;
-  width: 70%;
+  display: none;
+  
+  @media only screen and (min-width: 1024px) {
+    align-self: center;
+    width: 70%;
+  }
 }
