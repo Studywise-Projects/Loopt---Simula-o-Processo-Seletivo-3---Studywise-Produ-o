@@ -8,14 +8,22 @@ import styles from '@/styles/pages/chosenCandidate.module.scss';
 import usePatchCandidate from '@/services/api/usePatchCandidate';
 import { useRouter } from 'next/router';
 import verifyRoutePath from '@/utils/verifyRoutePath';
+import { ICandidate } from '@/interfaces/ICandidate';
+import AlertDialog from '@/components/AlertDialog/AlertDialog';
 
 function ChosenCandidate() {
   const selectedJob = useJobsStore((state) => state.selectedJob);
-  const selectedCandidate = useCandidatesStore(
-    (state) => state.selectedCandidate,
-  );
+  const [candidates, selectedCandidate] = useCandidatesStore((state) => [
+    state.candidates,
+    state.selectedCandidate,
+  ]);
 
   const router = useRouter();
+
+  const chosenCandidateVerify = candidates.filter(
+    (candidate: ICandidate) =>
+      candidate.jobId === selectedJob.id && candidate.approved === true,
+  );
 
   const mutation: any = usePatchCandidate(
     selectedCandidate,
@@ -57,14 +65,29 @@ function ChosenCandidate() {
             isAuxButton={true}
             isSecondaryButton={true}
           />
-          <Button
-            text='Confirmar'
-            handleClick={() => {
-              mutation.mutate();
-              router.back();
-            }}
-            isAuxButton={true}
-          />
+          {chosenCandidateVerify.length > 0 ? (
+            <AlertDialog
+              buttonText='Confirmar'
+              dialogTitle='Candidato já escolhido'
+              dialogText='Você já escolheu um candido para esta vaga, deseja substituir o candidato escolhido e prosseguir?'
+              disagreeButtonText='Cancelar'
+              agreeButtonText='Confirmar'
+              handleClickDisagree={() => router.back()}
+              handleClickAgree={() => {
+                mutation.mutate();
+                router.back();
+              }}
+            />
+          ) : (
+            <Button
+              text='Confirmar'
+              handleClick={() => {
+                mutation.mutate();
+                router.back();
+              }}
+              isAuxButton={true}
+            />
+          )}
         </Box>
       </Stack>
     </Layout>
