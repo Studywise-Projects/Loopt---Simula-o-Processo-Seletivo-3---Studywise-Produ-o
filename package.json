@@ -9,7 +9,7 @@
     "lint": "eslint **/*.tsx --fix",
     "format": "prettier --write src",
     "test": "jest --watch",
-    "json-server": "json-server --watch src/mocks/db.json --port 5000"
+    "json-server": "json-server --watch src/mocks/db.json --port 5000 --no-cors"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
