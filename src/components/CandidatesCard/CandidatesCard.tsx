@@ -32,7 +32,7 @@ function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
               className={styles.cardCandidate}
               onClick={() => {
                 setSelectedCandidate(candidate);
-                router.push(`${candidate.id}`);
+                router.push(`/candidates/${candidate.id}`);
               }}
             >
               <Box className={styles.cardHighlight}>
