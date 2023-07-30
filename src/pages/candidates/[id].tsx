@@ -1,5 +1,4 @@
-import { Button, Typography } from '@/components';
-import Layout from '@/components/Layout/Layout';
+import { Button, Typography, Layout } from '@/components';
 import useCandidatesStore from '@/stores/candidates';
 import useJobsStore from '@/stores/jobs';
 import formatArrayToString from '@/utils/formatArrayToString';
