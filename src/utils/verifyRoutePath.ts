@@ -10,10 +10,11 @@ function verifyRoutePath(route: string) {
     '',
   );
 
-  if (routeReplaced === '') {
-    return 5;
-  } else {
-    return 'all';
+  switch (routeReplaced) {
+    case '':
+      return 5;
+    case 'all':
+      return 'all';
   }
 }
 
