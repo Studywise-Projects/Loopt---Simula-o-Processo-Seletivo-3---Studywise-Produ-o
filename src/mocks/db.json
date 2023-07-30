@@ -165,7 +165,7 @@
       "picture": "/assets/img/profile-pictures/16w.jpg",
       "skills": ["Ruby", " Laravel", "Phoenix"],
       "jobId": 2,
-      "approved": true
+      "approved": false
     },
     {
       "id": 16,
@@ -183,7 +183,7 @@
       "picture": "/assets/img/profile-pictures/17w.jpg",
       "skills": ["Laravel", "Django", "CakePHP"],
       "jobId": 2,
-      "approved": true
+      "approved": false
     },
     {
       "id": 18,
@@ -192,7 +192,7 @@
       "picture": "/assets/img/profile-pictures/27m.jpg",
       "skills": ["Flask", "Koa", "Laravel"],
       "jobId": 2,
-      "approved": true
+      "approved": false
     },
     {
       "id": 19,
