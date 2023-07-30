@@ -44,7 +44,6 @@ function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
                       ? router.asPath.replaceAll('/candidates', '')
                       : router.asPath.replaceAll('/candidates/', ''),
                 });
-                console.log(router.asPath);
               }}
             >
               <Box className={styles.cardHighlight}>
