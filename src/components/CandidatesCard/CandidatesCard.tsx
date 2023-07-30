@@ -3,15 +3,18 @@ import Typography from '../Typography/Typography';
 import styles from './CandidatesCard.module.scss';
 import Image from 'next/image';
 import { ICandidate } from '../../interfaces/ICandidate';
-import formatArrayToString from '../../utils/formatArrayToString';
 import useCandidatesStore from '../../stores/candidates';
 import { useRouter } from 'next/router';
+import Button from '../Button/Button';
+import formatCandidateName from '@/utils/formatCandidateName';
+import formatArrayToString from '@/utils/formatArrayToString';
 
 interface ICandidatesCard {
   candidates: Array<ICandidate>;
+  withButton?: boolean;
 }
 
-function CandidatesCard({ candidates }: ICandidatesCard) {
+function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
   const setSelectedCandidate = useCandidatesStore(
     (state) => state.setSelectedCandidate,
   );
@@ -29,7 +32,7 @@ function CandidatesCard({ candidates }: ICandidatesCard) {
               className={styles.cardCandidate}
               onClick={() => {
                 setSelectedCandidate(candidate);
-                router.push(`candidates/${candidate.id}`);
+                router.push(`${candidate.id}`);
               }}
             >
               <Box className={styles.cardHighlight}>
@@ -41,7 +44,10 @@ function CandidatesCard({ candidates }: ICandidatesCard) {
                   className={styles.profilePicture}
                 />
                 <Box className={styles.highlightContent}>
-                  <Typography variant='subtitle' text={candidate.name} />
+                  <Typography
+                    variant='subtitle'
+                    text={formatCandidateName(candidate.name)}
+                  />
                   <Typography variant='body' text={`${candidate.age} anos`} />
                 </Box>
               </Box>
@@ -52,6 +58,20 @@ function CandidatesCard({ candidates }: ICandidatesCard) {
                   text={formatArrayToString(candidate.skills, 0, 25)}
                 />
               </Box>
+              {withButton === true ? (
+                <Box className={styles.buttonContainer}>
+                  <Button
+                    text='Selecionar'
+                    isAuxButton={true}
+                    handleClick={() => {
+                      setSelectedCandidate(candidate);
+                      router.push(`/candidates/${candidate.id}`);
+                    }}
+                  />
+                </Box>
+              ) : (
+                <></>
+              )}
             </Stack>
             <Box className={styles.dividerContainer}>
               <Divider className={styles.divider} />

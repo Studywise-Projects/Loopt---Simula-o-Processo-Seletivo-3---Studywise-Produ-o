@@ -16,6 +16,7 @@ import Logo from '../Logo/Logo';
 import styles from './LeftDrawer.module.scss';
 import Link from 'next/link';
 import Select from '../Select/Select';
+import useCandidatesStore from '@/stores/candidates';
 
 interface ILeftDrawer {
   optionsSelect: any;
@@ -29,6 +30,10 @@ function LeftDrawer({
   handleChangeSelect,
 }: ILeftDrawer) {
   const [state, setState] = useState(false);
+
+  const selectedCandidate = useCandidatesStore(
+    (state) => state.selectedCandidate,
+  );
 
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -86,7 +91,10 @@ function LeftDrawer({
             </ListItemButton>
           </Link>
 
-          <Link href='/' className={styles.link}>
+          <Link
+            href={`/candidates/${selectedCandidate.id}`}
+            className={styles.link}
+          >
             <ListItemButton className={styles.listItem}>
               <ListItemIcon className={styles.listIcon}>
                 <StarIcon />
@@ -98,7 +106,7 @@ function LeftDrawer({
             </ListItemButton>
           </Link>
 
-          <Link href='/' className={styles.link}>
+          <Link href='candidates/all' className={styles.link}>
             <ListItemButton className={styles.listItem}>
               <ListItemIcon className={styles.listIcon}>
                 <PeopleIcon />

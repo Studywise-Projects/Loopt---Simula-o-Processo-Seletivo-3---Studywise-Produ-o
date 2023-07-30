@@ -1,28 +1,30 @@
-import { TitleCard, JobDetailsCard, Layout } from '@/components';
-import useJobsStore from '@/stores/jobs';
+import {
+  CandidatesCard,
+  JobDetailsCard,
+  Layout,
+  TitleCard,
+} from '@/components';
 import { Stack } from '@mui/material';
-import styles from '@/styles/pages/candidates.module.scss';
-import CandidatesCard from '@/components/CandidatesCard/CandidatesCard';
-import useCandidatesStore from '@/stores/candidates';
-import { useEffect, useState } from 'react';
-import useGetCandidates from '@/services/api/useGetCandidates';
-import shuffleCandidates from '@/utils/shuffleCandidates';
-import searchCandidate from '@/utils/searchCandidate';
+import styles from '@/styles/pages/allCandidates.module.scss';
 import statsCandidates from '@/utils/statsCandidates';
-import useAuthStore from '@/stores/auth';
+import useCandidatesStore from '@/stores/candidates';
+import useJobsStore from '@/stores/jobs';
+import searchCandidate from '@/utils/searchCandidate';
+import { useEffect, useState } from 'react';
+import filterCandidates from '@/utils/filterCandidates';
 import { useRouter } from 'next/router';
+import useAuthStore from '@/stores/auth';
+import useGetCandidates from '@/services/api/useGetCandidates';
 
-function Candidates() {
-  const [randomCandidates, setRandomCandidates]: any = useState();
+function AllCandidates() {
   const [search, setSearch] = useState('');
-  const [selectedJob, setSelectedJob] = useJobsStore((state) => [
-    state.selectedJob,
-    state.setSelectedJob,
-  ]);
   const candidates = useCandidatesStore((state) => state.candidates);
+  const selectedJob = useJobsStore((state) => state.selectedJob);
   const loggedIn = useAuthStore((state) => state.loggedIn);
 
-  const handleChangeSearch = (event: any) => setSearch(event.target.value);
+  const handleChangeSearch = (event: any) => {
+    setSearch(event.target.value);
+  };
 
   const candidatesTotal = statsCandidates(
     candidates,
@@ -35,14 +37,19 @@ function Candidates() {
     'countApproveds',
   );
 
+  const filteredCandidates = filterCandidates(
+    candidates,
+    selectedJob.id,
+    'job',
+  );
+
   const { refetch } = useGetCandidates();
 
   const router = useRouter();
 
   useEffect(() => {
     refetch();
-    setRandomCandidates(shuffleCandidates(candidates, selectedJob.id, 5));
-  }, [randomCandidates === undefined || selectedJob]);
+  }, [selectedJob]);
 
   useEffect(() => {
     if (loggedIn === false) {
@@ -51,18 +58,18 @@ function Candidates() {
   }, [loggedIn]);
 
   return (
-    <Layout variant='main' headerText='Candidatos'>
+    <Layout
+      variant='main'
+      headerVariant='return'
+      headerText='Todos os candidatos'
+    >
       <Stack className={styles.contentContainer}>
         <TitleCard
           title={selectedJob.label}
+          variant='withoutAction'
           caption={`${candidatesTotal} candidatos | ${approvedsTotal} aprovados`}
           actionButtonText='Embaralhar'
-          handleClick={() => {
-            setRandomCandidates(
-              shuffleCandidates(candidates, selectedJob.id, 5),
-            );
-            console.log(candidates);
-          }}
+          handleClick={() => undefined}
         />
         <Stack className={styles.candidatesContainer}>
           <CandidatesCard
@@ -70,8 +77,9 @@ function Candidates() {
               search,
               selectedJob,
               candidates,
-              randomCandidates,
+              filteredCandidates,
             )}
+            withButton={true}
           />
           <JobDetailsCard
             job={selectedJob}
@@ -84,4 +92,4 @@ function Candidates() {
   );
 }
 
-export default Candidates;
+export default AllCandidates;

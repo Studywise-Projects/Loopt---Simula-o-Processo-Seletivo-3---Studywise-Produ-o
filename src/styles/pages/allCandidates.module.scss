@@ -1,0 +1,11 @@
+@import '@/styles/_global.scss';
+
+.contentContainer {
+  gap: 16px;
+  padding: 16px;
+}
+
+.candidatesContainer {
+  flex-direction: row;
+  gap: 16px;
+}

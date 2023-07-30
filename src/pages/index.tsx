@@ -22,7 +22,7 @@ export default function Home() {
     }
   };
 
-  const { refetch, isRefetching, isSuccess } = useGetJobs();
+  const { refetch, isRefetching } = useGetJobs();
 
   const router = useRouter();
 
@@ -60,7 +60,7 @@ export default function Home() {
             <Button
               text='Entrar'
               handleClick={() => {
-                isSuccess === true ? router.push('login') : <></>;
+                router.push('login');
               }}
               handleKeyPress={handlePressEnter}
               isLoading={isRefetching === false ? false : true}

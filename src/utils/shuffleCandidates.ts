@@ -3,7 +3,7 @@ import { ICandidate } from '@/interfaces/ICandidate';
 function shuffleCandidates(
   array: Array<ICandidate>,
   jobId: number,
-  limit?: 5 | 'all',
+  limit: 5 | 'all',
 ) {
   // generate random order in candidates array
   const newArray: Array<ICandidate> = array
