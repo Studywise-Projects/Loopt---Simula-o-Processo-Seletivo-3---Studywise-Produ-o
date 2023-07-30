@@ -13,7 +13,12 @@
 }
 
 .auxButton {
-  max-width: min-content;
+  width: 120px;
+}
+
+.secondaryButton {
+  background-color: $light-gray;
+  color: $black;
 }
 
 .contained {

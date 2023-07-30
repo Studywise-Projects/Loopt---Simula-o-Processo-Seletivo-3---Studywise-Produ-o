@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material';
 import styles from './Input.module.scss';
-import { ChangeEventHandler } from 'react';
+import { ChangeEventHandler, KeyboardEventHandler } from 'react';
 
 interface IInput {
   required?: boolean;
@@ -9,6 +9,7 @@ interface IInput {
   type: 'text' | 'password';
   value: string;
   handleChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  handleKeyPress: KeyboardEventHandler<HTMLDivElement> | undefined;
 }
 
 function Input({
@@ -18,6 +19,7 @@ function Input({
   type,
   value,
   handleChange,
+  handleKeyPress,
 }: IInput) {
   return (
     <TextField
@@ -28,6 +30,7 @@ function Input({
       type={type}
       value={value}
       onChange={handleChange}
+      onKeyDown={handleKeyPress}
       data-test-id='input'
       className={styles.input}
     />

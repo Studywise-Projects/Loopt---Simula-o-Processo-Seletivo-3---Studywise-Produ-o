@@ -1,4 +1,10 @@
-import { Header, LeftDrawer, TitleCard } from '@/components';
+import {
+  Header,
+  LeftDrawer,
+  TitleCard,
+  JobDetailsCard,
+  Layout,
+} from '@/components';
 import useJobsStore from '@/stores/jobs';
 import { Stack } from '@mui/material';
 import styles from '@/styles/pages/candidates.module.scss';
@@ -7,35 +13,54 @@ import useCandidatesStore from '@/stores/candidates';
 import { useEffect, useState } from 'react';
 import useGetCandidates from '@/services/api/useGetCandidates';
 import shuffleCandidates from '@/utils/shuffleCandidates';
-import JobDetailsCard from '@/components/JobDetailsCard/JobDetailsCard';
-import { ICandidate } from '@/interfaces/ICandidate';
 import searchCandidate from '@/utils/searchCandidate';
+import statsCandidates from '@/utils/statsCandidates';
+import useAuthStore from '@/stores/auth';
+import { useRouter } from 'next/router';
 
 function Candidates() {
   const [randomCandidates, setRandomCandidates]: any = useState();
-
   const [search, setSearch] = useState('');
-  const handleChangeSearch = (event: any) => setSearch(event.target.value);
-
   const [jobs, selectedJob, setSelectedJob] = useJobsStore((state) => [
     state.jobs,
     state.selectedJob,
     state.setSelectedJob,
   ]);
+  const candidates = useCandidatesStore((state) => state.candidates);
+  const loggedIn = useAuthStore((state) => state.loggedIn);
+
+  const handleChangeSearch = (event: any) => setSearch(event.target.value);
   const handleChangeSelectedJob = (event: any) =>
     setSelectedJob(event.target.value);
 
-  const candidates = useCandidatesStore((state) => state.candidates);
+  const candidatesTotal = statsCandidates(
+    candidates,
+    selectedJob.id,
+    'countTotal',
+  );
+  const approvedsTotal = statsCandidates(
+    candidates,
+    selectedJob.id,
+    'countApproveds',
+  );
 
   const { refetch } = useGetCandidates();
+
+  const router = useRouter();
 
   useEffect(() => {
     refetch();
     setRandomCandidates(shuffleCandidates(candidates, selectedJob.id, 5));
   }, [randomCandidates === undefined || selectedJob]);
 
+  useEffect(() => {
+    if (loggedIn === false) {
+      router.push('/');
+    }
+  }, [loggedIn]);
+
   return (
-    <Stack className={styles.main}>
+    <Layout variant='main' headerText='Candidatos'>
       <Header
         icon={
           <LeftDrawer
@@ -49,16 +74,13 @@ function Candidates() {
       <Stack className={styles.contentContainer}>
         <TitleCard
           title={selectedJob.label}
-          caption={`${
-            candidates.filter((candidate) => candidate.jobId === selectedJob.id)
-              .length
-          } candidatos (5 estão sendo exibidos)`}
-          actionCaption='Clique aqui para ver outros candidatos'
+          caption={`${candidatesTotal} candidatos | ${approvedsTotal} aprovados`}
           actionButtonText='Embaralhar'
           handleClick={() => {
             setRandomCandidates(
               shuffleCandidates(candidates, selectedJob.id, 5),
             );
+            console.log(candidates);
           }}
         />
         <Stack className={styles.candidatesContainer}>
@@ -69,7 +91,6 @@ function Candidates() {
               candidates,
               randomCandidates,
             )}
-            handleClick={() => console.log(search)}
           />
           <JobDetailsCard
             job={selectedJob}
@@ -78,7 +99,7 @@ function Candidates() {
           />
         </Stack>
       </Stack>
-    </Stack>
+    </Layout>
   );
 }
 

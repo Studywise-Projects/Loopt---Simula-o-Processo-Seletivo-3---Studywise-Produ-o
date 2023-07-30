@@ -31,10 +31,9 @@
   flex: 1;
   gap: 16px;
   padding: 8px 24px 24px 24px;
-  flex-direction: row-reverse;
+  flex-direction: row;
   
   @media only screen and (min-width: 768px) {
-    flex-direction: row;
     justify-content: flex-end;
     padding: 24px;
     text-align: right;

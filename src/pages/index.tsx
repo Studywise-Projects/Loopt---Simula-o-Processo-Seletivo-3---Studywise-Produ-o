@@ -1,4 +1,4 @@
-import { Button, Logo, SelectAutoComplete, Typography } from '@/components';
+import { Button, Logo, Typography, Select } from '@/components';
 import { Box, Stack } from '@mui/material';
 import Image from 'next/image';
 import styles from '@/styles/pages/index.module.scss';
@@ -6,7 +6,6 @@ import useJobsStore from '@/stores/jobs';
 import useGetJobs from '@/services/api/useGetJobs';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Select from '@/components/Select/Select';
 
 export default function Home() {
   const [jobs, selectedJob, setSelectedJob] = useJobsStore((state) => [
@@ -16,6 +15,12 @@ export default function Home() {
   ]);
   const handleChangeSelectedJob = (event: any) =>
     setSelectedJob(event.target.value);
+
+  const handlePressEnter = (event: any) => {
+    if (event.key === 'enter') {
+      router.push('login');
+    }
+  };
 
   const { refetch } = useGetJobs();
 
@@ -57,6 +62,7 @@ export default function Home() {
               handleClick={() => {
                 router.push('login');
               }}
+              handleKeyPress={handlePressEnter}
             />
           </Box>
         </Box>

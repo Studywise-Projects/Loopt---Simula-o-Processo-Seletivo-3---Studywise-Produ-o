@@ -1,21 +1,27 @@
 import Button from './Button/Button';
+import CandidatesCard from './CandidatesCard/CandidatesCard';
 import Header from './Header/Header';
+import Input from './Input/Input';
+import JobDetailsCard from './JobDetailsCard/JobDetailsCard';
+import Layout from './Layout/Layout';
 import LeftDrawer from './LeftDrawer/LeftDrawer';
 import Logo from './Logo/Logo';
-import SelectAutoComplete from './SelectAutoComplete/SelectAutoComplete';
-import Input from './Input/Input';
+import SearchBar from './SearchBar/SearchBar';
+import Select from './Select/Select';
 import TitleCard from './TitleCard/TitleCard';
 import Typography from './Typography/Typography';
-import SearchBar from './SearchBar/SearchBar';
 
 export {
   Button,
+  CandidatesCard,
   Header,
+  Input,
+  JobDetailsCard,
+  Layout,
   LeftDrawer,
   Logo,
-  SelectAutoComplete,
-  Input,
+  SearchBar,
+  Select,
   TitleCard,
   Typography,
-  SearchBar,
 };

@@ -77,7 +77,7 @@ function LeftDrawer({
           handleChange={handleChangeSelect}
         />
         <List>
-          <Link href='/' className={styles.link}>
+          <Link href='/candidates' className={styles.link}>
             <ListItemButton className={styles.listItem}>
               <ListItemIcon className={styles.listIcon}>
                 <HomeIcon />

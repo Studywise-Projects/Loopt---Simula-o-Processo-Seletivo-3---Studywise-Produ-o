@@ -20,6 +20,7 @@ function JobDetailsCard({ job, value, handleChange }: IJobDetailsCard) {
           label='Buscar candidato pelo nome'
           value={value}
           handleChange={handleChange}
+          isAuxSearch={true}
         />
         <Typography variant='subtitle' text='Detalhes da Vaga' />
         <Box className={styles.jobDetailsContainer}>

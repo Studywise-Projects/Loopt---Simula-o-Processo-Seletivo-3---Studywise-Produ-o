@@ -3,7 +3,7 @@ import { IJob } from '@/interfaces/IJob';
 
 type State = {
   jobs: [IJob];
-  selectedJob: any;
+  selectedJob: IJob;
 };
 
 type Action = {
@@ -13,7 +13,7 @@ type Action = {
 
 const useJobsStore = create<State & Action>((set) => ({
   jobs: [{ id: 0, label: '', requirements: [''], differentials: [''] }],
-  selectedJob: {},
+  selectedJob: { id: 0, label: '', requirements: [''], differentials: [''] },
 
   setJobs: (jobs) => set(() => ({ jobs: jobs })),
   setSelectedJob: (selectedJob) => set(() => ({ selectedJob: selectedJob })),

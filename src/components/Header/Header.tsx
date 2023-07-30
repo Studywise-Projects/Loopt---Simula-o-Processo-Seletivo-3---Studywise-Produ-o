@@ -1,25 +1,32 @@
-import { AppBar, IconButton, Toolbar } from '@mui/material';
+import { AppBar, Toolbar } from '@mui/material';
 import Typography from '../Typography/Typography';
 import { ReactNode } from 'react';
 import styles from './Header.module.scss';
+import LeftDrawer from '../LeftDrawer/LeftDrawer';
+import useJobsStore from '../../stores/jobs';
 
 interface IHeader {
-  icon: ReactNode;
+  icon?: ReactNode;
   text: string;
-  handleClick?: () => void;
 }
 
-function Header({ icon, text, handleClick }: IHeader) {
+function Header({ icon, text }: IHeader) {
+  const [jobs, selectedJob, setSelectedJob] = useJobsStore((state) => [
+    state.jobs,
+    state.selectedJob,
+    state.setSelectedJob,
+  ]);
+  const handleChangeSelectJob = (event: any) =>
+    setSelectedJob(event.target.value);
+
   return (
     <AppBar>
       <Toolbar className={styles.toolbar}>
-        <IconButton
-          onClick={handleClick}
-          data-test-id='header'
-          className={styles.iconButton}
-        >
-          {icon}
-        </IconButton>
+        <LeftDrawer
+          optionsSelect={jobs}
+          valueSelect={selectedJob}
+          handleChangeSelect={handleChangeSelectJob}
+        />
         <Typography variant='header' text={text} />
       </Toolbar>
     </AppBar>

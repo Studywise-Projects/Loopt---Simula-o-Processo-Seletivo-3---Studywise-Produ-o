@@ -1,27 +1,11 @@
 @import '@/styles/_global.scss';
 
-.main {
-  flex-direction: column;
-  height: 100%;
-  margin-top: calc(60px + 16px);
-  overflow-y: hidden;
-  width: 100%;
-
-  @media only screen and (min-width: 1024px) {
-    margin-top: calc(70px + 16px);
-  }
-}
-
 .contentContainer {
-  gap: 32px;
+  gap: 16px;
   padding: 16px;
-
-  @media only screen and (min-width: 1024px) {
-    padding: 32px;
-  }
 }
 
 .candidatesContainer {
   flex-direction: row;
-  gap: 32px;
+  gap: 16px;
 }
