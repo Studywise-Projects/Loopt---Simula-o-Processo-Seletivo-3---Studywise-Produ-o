@@ -10,9 +10,10 @@ function statsCandidates(
       candidate.jobId === jobId && candidate.approved === false,
   );
 
-  const countApproveds = candidates.filter((candidate: ICandidate) => {
-    candidate.jobId === jobId && candidate.approved === true;
-  });
+  const countApproveds = candidates.filter(
+    (candidate: ICandidate) =>
+      candidate.jobId === jobId && candidate.approved === true,
+  );
 
   switch (requestedData) {
     case 'countTotal':
