@@ -12,16 +12,16 @@ function Logo({ variant }: ILogo) {
         <Image
           src='/assets/img/loopt-horizontal-logo.svg'
           alt='Logo da Loopt'
-          width={320}
-          height={120}
+          height={80}
+          width={140}
           className={styles.logoHorizontal}
         />
       ) : (
         <Image
           src='/assets/img/loopt-vertical-logo.svg'
           alt='Logo da Loopt'
-          width={320}
-          height={120}
+          height={100}
+          width={140}
           className={styles.logoVertical}
         />
       )}

@@ -1,28 +1,32 @@
-import { TitleCard, JobDetailsCard, Layout } from '@/components';
-import useJobsStore from '@/stores/jobs';
+import {
+  CandidatesCard,
+  JobDetailsCard,
+  Layout,
+  TitleCard,
+} from '@/components';
 import { Stack } from '@mui/material';
-import styles from '@/styles/pages/candidates.module.scss';
-import CandidatesCard from '@/components/CandidatesCard/CandidatesCard';
-import useCandidatesStore from '@/stores/candidates';
-import { useEffect, useState } from 'react';
-import useGetCandidates from '@/services/api/useGetCandidates';
-import searchCandidate from '@/utils/searchCandidate';
+import styles from '@/styles/pages/allCandidates.module.scss';
 import statsCandidates from '@/utils/statsCandidates';
-import useAuthStore from '@/stores/auth';
+import useCandidatesStore from '@/stores/candidates';
+import useJobsStore from '@/stores/jobs';
+import searchCandidate from '@/utils/searchCandidate';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import useAuthStore from '@/stores/auth';
+import useGetCandidates from '@/services/api/useGetCandidates';
 
-function Candidates() {
+function AllCandidates() {
   const [search, setSearch] = useState('');
+  const [candidates, filteredCandidates] = useCandidatesStore((state) => [
+    state.candidates,
+    state.filteredCandidates,
+  ]);
   const selectedJob = useJobsStore((state) => state.selectedJob);
-  const [candidates, filteredCandidates, setFilteredCandidates] =
-    useCandidatesStore((state) => [
-      state.candidates,
-      state.filteredCandidates,
-      state.setFilteredCandidate,
-    ]);
   const loggedIn = useAuthStore((state) => state.loggedIn);
 
-  const handleChangeSearch = (event: any) => setSearch(event.target.value);
+  const handleChangeSearch = (event: any) => {
+    setSearch(event.target.value);
+  };
 
   const candidatesTotal = statsCandidates(
     candidates,
@@ -35,14 +39,13 @@ function Candidates() {
     'countApproveds',
   );
 
-  const { refetch } = useGetCandidates(5);
+  const { refetch } = useGetCandidates('all');
 
   const router = useRouter();
 
   useEffect(() => {
     refetch();
-    setFilteredCandidates(searchCandidate(search, selectedJob, candidates, 5));
-  }, [candidates === undefined || selectedJob]);
+  }, [selectedJob]);
 
   useEffect(() => {
     if (loggedIn === false) {
@@ -51,25 +54,27 @@ function Candidates() {
   }, [loggedIn]);
 
   return (
-    <Layout variant='main' headerText='Candidatos'>
+    <Layout
+      variant='main'
+      headerVariant='return'
+      headerText='Todos os candidatos'
+    >
       <Stack className={styles.contentContainer}>
         <TitleCard
           title={selectedJob.label}
+          variant='withoutAction'
           caption={`${candidatesTotal} candidatos | ${approvedsTotal} aprovados`}
           actionButtonText='Embaralhar'
-          handleClick={() => {
-            setFilteredCandidates(
-              searchCandidate(search, selectedJob, candidates, 5),
-            );
-          }}
+          handleClick={() => undefined}
         />
         <Stack className={styles.candidatesContainer}>
           <CandidatesCard
             candidates={
               search.length > 0
-                ? searchCandidate(search, selectedJob, candidates, 5)
+                ? searchCandidate(search, selectedJob, candidates, 'all')
                 : filteredCandidates
             }
+            withButton={true}
           />
           <JobDetailsCard
             job={selectedJob}
@@ -82,4 +87,4 @@ function Candidates() {
   );
 }
 
-export default Candidates;
+export default AllCandidates;

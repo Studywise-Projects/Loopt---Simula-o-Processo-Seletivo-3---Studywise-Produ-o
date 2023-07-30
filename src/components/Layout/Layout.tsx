@@ -7,11 +7,17 @@ import styles from './Layout.module.scss';
 
 interface ILayout {
   variant: 'main' | 'basic';
+  headerVariant?: 'main' | 'return';
   headerText?: string;
   children: ReactNode;
 }
 
-function Layout({ variant, headerText = '', children }: ILayout) {
+function Layout({
+  variant,
+  headerVariant = 'main',
+  headerText = '',
+  children,
+}: ILayout) {
   const [jobs, selectedJob, setSelectedJob] = useJobsStore((state) => [
     state.jobs,
     state.selectedJob,
@@ -24,16 +30,7 @@ function Layout({ variant, headerText = '', children }: ILayout) {
     <>
       {variant === 'main' ? (
         <Stack className={styles.main}>
-          <Header
-            icon={
-              <LeftDrawer
-                optionsSelect={jobs}
-                valueSelect={selectedJob}
-                handleChangeSelect={handleChangeSelectedJob}
-              />
-            }
-            text={headerText}
-          />
+          <Header variant={headerVariant} text={headerText} />
           {children}
         </Stack>
       ) : (
