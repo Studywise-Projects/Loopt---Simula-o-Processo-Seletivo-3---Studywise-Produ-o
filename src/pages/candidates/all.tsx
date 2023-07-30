@@ -11,14 +11,16 @@ import useCandidatesStore from '@/stores/candidates';
 import useJobsStore from '@/stores/jobs';
 import searchCandidate from '@/utils/searchCandidate';
 import { useEffect, useState } from 'react';
-import filterCandidates from '@/utils/filterCandidates';
 import { useRouter } from 'next/router';
 import useAuthStore from '@/stores/auth';
 import useGetCandidates from '@/services/api/useGetCandidates';
 
 function AllCandidates() {
   const [search, setSearch] = useState('');
-  const candidates = useCandidatesStore((state) => state.candidates);
+  const [candidates, filteredCandidates] = useCandidatesStore((state) => [
+    state.candidates,
+    state.filteredCandidates,
+  ]);
   const selectedJob = useJobsStore((state) => state.selectedJob);
   const loggedIn = useAuthStore((state) => state.loggedIn);
 
@@ -37,13 +39,7 @@ function AllCandidates() {
     'countApproveds',
   );
 
-  const filteredCandidates = filterCandidates(
-    candidates,
-    selectedJob.id,
-    'job',
-  );
-
-  const { refetch } = useGetCandidates();
+  const { refetch } = useGetCandidates('all');
 
   const router = useRouter();
 
@@ -73,12 +69,11 @@ function AllCandidates() {
         />
         <Stack className={styles.candidatesContainer}>
           <CandidatesCard
-            candidates={searchCandidate(
-              search,
-              selectedJob,
-              candidates,
-              filteredCandidates,
-            )}
+            candidates={
+              search.length > 0
+                ? searchCandidate(search, selectedJob, candidates, 'all')
+                : filteredCandidates
+            }
             withButton={true}
           />
           <JobDetailsCard

@@ -6,20 +6,20 @@ import CandidatesCard from '@/components/CandidatesCard/CandidatesCard';
 import useCandidatesStore from '@/stores/candidates';
 import { useEffect, useState } from 'react';
 import useGetCandidates from '@/services/api/useGetCandidates';
-import shuffleCandidates from '@/utils/shuffleCandidates';
 import searchCandidate from '@/utils/searchCandidate';
 import statsCandidates from '@/utils/statsCandidates';
 import useAuthStore from '@/stores/auth';
 import { useRouter } from 'next/router';
 
 function Candidates() {
-  const [randomCandidates, setRandomCandidates]: any = useState();
   const [search, setSearch] = useState('');
-  const [selectedJob, setSelectedJob] = useJobsStore((state) => [
-    state.selectedJob,
-    state.setSelectedJob,
-  ]);
-  const candidates = useCandidatesStore((state) => state.candidates);
+  const selectedJob = useJobsStore((state) => state.selectedJob);
+  const [candidates, filteredCandidates, setFilteredCandidates] =
+    useCandidatesStore((state) => [
+      state.candidates,
+      state.filteredCandidates,
+      state.setFilteredCandidate,
+    ]);
   const loggedIn = useAuthStore((state) => state.loggedIn);
 
   const handleChangeSearch = (event: any) => setSearch(event.target.value);
@@ -35,14 +35,14 @@ function Candidates() {
     'countApproveds',
   );
 
-  const { refetch } = useGetCandidates();
+  const { refetch } = useGetCandidates(5);
 
   const router = useRouter();
 
   useEffect(() => {
     refetch();
-    setRandomCandidates(shuffleCandidates(candidates, selectedJob.id, 5));
-  }, [randomCandidates === undefined || selectedJob]);
+    setFilteredCandidates(searchCandidate(search, selectedJob, candidates, 5));
+  }, [candidates === undefined || selectedJob]);
 
   useEffect(() => {
     if (loggedIn === false) {
@@ -58,20 +58,18 @@ function Candidates() {
           caption={`${candidatesTotal} candidatos | ${approvedsTotal} aprovados`}
           actionButtonText='Embaralhar'
           handleClick={() => {
-            setRandomCandidates(
-              shuffleCandidates(candidates, selectedJob.id, 5),
+            setFilteredCandidates(
+              searchCandidate(search, selectedJob, candidates, 5),
             );
-            console.log(candidates);
           }}
         />
         <Stack className={styles.candidatesContainer}>
           <CandidatesCard
-            candidates={searchCandidate(
-              search,
-              selectedJob,
-              candidates,
-              randomCandidates,
-            )}
+            candidates={
+              search.length > 0
+                ? searchCandidate(search, selectedJob, candidates, 5)
+                : filteredCandidates
+            }
           />
           <JobDetailsCard
             job={selectedJob}

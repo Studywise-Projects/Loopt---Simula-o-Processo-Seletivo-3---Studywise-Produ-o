@@ -7,9 +7,7 @@ function shuffleCandidates(
 ) {
   // generate random order in candidates array
   const newArray: Array<ICandidate> = array
-    .filter(
-      (candidate) => candidate.jobId === jobId && candidate.approved === false,
-    )
+    .filter((candidate) => candidate.jobId === jobId && !candidate.approved)
     .slice();
   for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));

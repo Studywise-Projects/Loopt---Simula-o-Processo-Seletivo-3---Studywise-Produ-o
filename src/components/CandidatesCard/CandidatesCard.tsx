@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import Button from '../Button/Button';
 import formatCandidateName from '@/utils/formatCandidateName';
 import formatArrayToString from '@/utils/formatArrayToString';
+import classNames from 'classnames';
 
 interface ICandidatesCard {
   candidates: Array<ICandidate>;
@@ -18,6 +19,10 @@ function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
   const setSelectedCandidate = useCandidatesStore(
     (state) => state.setSelectedCandidate,
   );
+
+  const highlightContentStyles = classNames(styles.highlightContent, {
+    [styles.highlightContentWithButton]: withButton === true,
+  });
 
   const router = useRouter();
 
@@ -32,7 +37,14 @@ function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
               className={styles.cardCandidate}
               onClick={() => {
                 setSelectedCandidate(candidate);
-                router.push(`/candidates/${candidate.id}`);
+                router.push({
+                  pathname: `/candidates/${candidate.id}`,
+                  hash:
+                    router.asPath === '/candidates'
+                      ? router.asPath.replaceAll('/candidates', '')
+                      : router.asPath.replaceAll('/candidates/', ''),
+                });
+                console.log(router.asPath);
               }}
             >
               <Box className={styles.cardHighlight}>
@@ -43,10 +55,14 @@ function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
                   height={64}
                   className={styles.profilePicture}
                 />
-                <Box className={styles.highlightContent}>
+                <Box className={highlightContentStyles}>
                   <Typography
                     variant='subtitle'
-                    text={formatCandidateName(candidate.name)}
+                    text={
+                      withButton === false
+                        ? candidate.name
+                        : formatCandidateName(candidate.name)
+                    }
                   />
                   <Typography variant='body' text={`${candidate.age} anos`} />
                 </Box>
@@ -65,7 +81,10 @@ function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
                     isAuxButton={true}
                     handleClick={() => {
                       setSelectedCandidate(candidate);
-                      router.push(`/candidates/${candidate.id}`);
+                      router.push({
+                        pathname: `/candidates/${candidate.id}`,
+                        hash: router.asPath.replace('/candidates/', ''),
+                      });
                     }}
                   />
                 </Box>
