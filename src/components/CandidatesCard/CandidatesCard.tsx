@@ -19,7 +19,7 @@ function CandidatesCard({ candidates }: ICandidatesCard) {
   const router = useRouter();
 
   return (
-    <Card className={styles.card}>
+    <Card className={styles.card} id={styles.cardRoot}>
       <CardContent className={styles.cardContent}>
         {candidates?.map((candidate: ICandidate) => (
           <>
@@ -53,7 +53,9 @@ function CandidatesCard({ candidates }: ICandidatesCard) {
                 />
               </Box>
             </Stack>
-            <Divider className={styles.divider} />
+            <Box className={styles.dividerContainer}>
+              <Divider className={styles.divider} />
+            </Box>
           </>
         ))}
       </CardContent>

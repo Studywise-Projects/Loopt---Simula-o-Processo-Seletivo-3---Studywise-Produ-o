@@ -1,11 +1,17 @@
 @import '@/styles/_global.scss';
 
+#cardRoot {
+  @media only screen and (max-width: 768px) {
+    box-shadow: none;
+  }
+}
+
 .card {
   border-radius: 20px;
-  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.10);
   width: 100%;
 
   @media only screen and (min-width: 1024px) {
+    box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.10);
     width: 65%;
   }
 }
@@ -25,10 +31,21 @@
 
 .cardCandidate {
   align-items: center;
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.10);
   border-radius: 20px;
   padding: 16px;
   flex-direction: row;
   justify-content: space-between;
+
+  @media only screen and (min-width: 1024px) {
+    box-shadow: none;
+  }
+}
+
+.cardCandidate:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+  opacity: 0.7;
 }
 
 .cardHighlight {
@@ -65,6 +82,16 @@
     justify-content: center;
     width: 220px;
   }
+}
+
+.dividerContainer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.dividerContainer:last-child {
+  display: none;
 }
 
 .divider {
