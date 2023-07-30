@@ -14,7 +14,7 @@ function ChosenCandidate() {
     (state) => state.selectedCandidate,
   );
 
-  const { refetch } = usePatchCandidate(selectedCandidate.id);
+  const mutation: any = usePatchCandidate(selectedCandidate.id);
 
   const router = useRouter();
 
@@ -54,7 +54,7 @@ function ChosenCandidate() {
           <Button
             text='Confirmar'
             handleClick={() => {
-              refetch();
+              mutation.mutate();
               router.back();
             }}
             isAuxButton={true}
