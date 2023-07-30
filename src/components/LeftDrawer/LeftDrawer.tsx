@@ -16,9 +16,9 @@ import Logo from '../Logo/Logo';
 import styles from './LeftDrawer.module.scss';
 import Link from 'next/link';
 import Select from '../Select/Select';
-import useCandidatesStore from '../../stores/candidates';
-import useJobsStore from '../../stores/jobs';
-import { ICandidate } from '../../interfaces/ICandidate';
+import useCandidatesStore from '@/stores/candidates';
+import useJobsStore from '@/stores/jobs';
+import { ICandidate } from '@/interfaces/ICandidate';
 
 interface ILeftDrawer {
   optionsSelect: any;
