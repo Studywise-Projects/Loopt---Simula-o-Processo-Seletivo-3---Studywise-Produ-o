@@ -8,10 +8,9 @@
   justify-content: center;
   padding: 16px;
   width: 100%;
-  
-  
+
   @media only screen and (min-width: 768px) and (min-height: 600px) {
-    box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.10);
+    box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     height: 80%;
     width: 60%;
@@ -38,7 +37,7 @@
   justify-content: center;
   padding-top: 16px;
   width: 320px;
-  
+
   @media only screen and (min-width: 1024px) {
     text-align: left;
     justify-content: flex-start;
@@ -53,7 +52,7 @@
   gap: 8px;
   padding-top: 16px;
   width: 320px;
-  
+
   @media only screen and (min-width: 1024px) {
     justify-content: flex-start;
     text-align: left;

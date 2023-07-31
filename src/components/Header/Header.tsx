@@ -1,6 +1,5 @@
 import { AppBar, IconButton, Toolbar } from '@mui/material';
 import Typography from '../Typography/Typography';
-import { ReactNode } from 'react';
 import styles from './Header.module.scss';
 import LeftDrawer from '../LeftDrawer/LeftDrawer';
 import useJobsStore from '../../stores/jobs';
