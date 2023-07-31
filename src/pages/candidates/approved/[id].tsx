@@ -7,15 +7,16 @@ import Image from 'next/image';
 import styles from '@/styles/pages/approvedCandidate.module.scss';
 import { useRouter } from 'next/router';
 import { ICandidate } from '@/interfaces/ICandidate';
+import verifyChosenCandidate from '@/utils/verifyChosenCandidate';
 
 function ApprovedCandidate() {
   const selectedJob = useJobsStore((state) => state.selectedJob);
   const candidates = useCandidatesStore((state) => state.candidates);
 
-  const approvedCandidate = candidates.filter(
-    (candidate: ICandidate) =>
-      candidate.jobId === selectedJob.id && candidate.approved === true,
-  );
+  const approvedCandidate = verifyChosenCandidate({
+    candidates: candidates,
+    selectedJobId: selectedJob.id,
+  });
 
   const router = useRouter();
 

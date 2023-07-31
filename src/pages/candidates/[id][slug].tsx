@@ -12,6 +12,7 @@ import { ICandidate } from '@/interfaces/ICandidate';
 import AlertDialog from '@/components/AlertDialog/AlertDialog';
 import { useEffect } from 'react';
 import useAuthStore from '@/stores/auth';
+import verifyChosenCandidate from '@/utils/verifyChosenCandidate';
 
 function ChosenCandidate() {
   const selectedJob = useJobsStore((state) => state.selectedJob);
@@ -23,10 +24,10 @@ function ChosenCandidate() {
 
   const router = useRouter();
 
-  const chosenCandidateVerify = candidates.filter(
-    (candidate: ICandidate) =>
-      candidate.jobId === selectedJob.id && candidate.approved === true,
-  );
+  const chosenCandidate = verifyChosenCandidate({
+    candidates: candidates,
+    selectedJobId: selectedJob.id,
+  });
 
   const mutation: any = usePatchCandidate(
     selectedCandidate,
@@ -74,7 +75,7 @@ function ChosenCandidate() {
             isAuxButton={true}
             isSecondaryButton={true}
           />
-          {chosenCandidateVerify.length > 0 ? (
+          {chosenCandidate.length > 0 ? (
             <AlertDialog
               buttonText='Confirmar'
               dialogTitle='Candidato já escolhido'
