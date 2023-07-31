@@ -1,4 +1,4 @@
-import { fireEvent, getByText, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Select from './Select';
 
 describe('Select', () => {
