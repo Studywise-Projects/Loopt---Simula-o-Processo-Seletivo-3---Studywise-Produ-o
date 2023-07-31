@@ -41,6 +41,7 @@ function AlertDialog({
   return (
     <div>
       <Button
+        data-testid='open-dialog-button'
         text={buttonText}
         handleClick={handleClickOpen}
         isAuxButton={true}
@@ -59,6 +60,7 @@ function AlertDialog({
         </DialogContent>
         <DialogActions>
           <ButtonMui
+            data-testid='disagree-button-alert-dialog'
             onClick={() => {
               handleClickDisagree();
               handleClose();
@@ -67,6 +69,7 @@ function AlertDialog({
             {disagreeButtonText}
           </ButtonMui>
           <ButtonMui
+            data-testid='agree-button-alert-dialog'
             onClick={() => {
               handleClickAgree();
               handleClose();
