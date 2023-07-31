@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react';
 import LeftDrawer from './LeftDrawer';
 
+jest.mock('next/router', () => require('next-router-mock'));
+
 describe('JobDetailsCard', () => {
   it('Should match the snapshot', () => {
     const { getByLabelText } = render(

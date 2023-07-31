@@ -19,6 +19,7 @@ import Select from '../Select/Select';
 import useCandidatesStore from '@/stores/candidates';
 import useJobsStore from '@/stores/jobs';
 import { ICandidate } from '@/interfaces/ICandidate';
+import { useRouter } from 'next/router';
 
 interface ILeftDrawer {
   optionsSelect: any;
@@ -54,6 +55,8 @@ function LeftDrawer({
     (candidate: ICandidate) =>
       candidate.jobId === selectedJob.id && candidate.approved === true,
   );
+
+  const router = useRouter();
 
   return (
     <>
@@ -93,7 +96,12 @@ function LeftDrawer({
               <ListItemIcon className={styles.listIcon}>
                 <HomeIcon />
               </ListItemIcon>
-              <ListItemText primary='Home' className={styles.listText} />
+              <ListItemText
+                primary='Home'
+                className={`${styles.listText} ${
+                  router.pathname === '/candidates' ? styles.textBold : ''
+                }`}
+              />
             </ListItemButton>
           </Link>
 
@@ -108,7 +116,12 @@ function LeftDrawer({
                 </ListItemIcon>
                 <ListItemText
                   primary='Candidato Escolhido'
-                  className={styles.listText}
+                  className={`${styles.listText} ${
+                    router.pathname ===
+                    `/candidates/approved/${approvedCandidate[0]?.id}`
+                      ? styles.textBold
+                      : ''
+                  }`}
                 />
               </ListItemButton>
             </Link>
@@ -123,7 +136,9 @@ function LeftDrawer({
               </ListItemIcon>
               <ListItemText
                 primary='Todos os Candidatos'
-                className={styles.listText}
+                className={`${styles.listText} ${
+                  router.pathname === '/candidates/all' ? styles.textBold : ''
+                }`}
               />
             </ListItemButton>
           </Link>
