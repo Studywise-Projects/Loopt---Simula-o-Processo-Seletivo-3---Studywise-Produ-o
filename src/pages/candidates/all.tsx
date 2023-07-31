@@ -5,7 +5,7 @@ import {
   TitleCard,
 } from '@/components';
 import { Stack } from '@mui/material';
-import styles from '@/styles/pages/allCandidates.module.scss';
+import styles from '@/styles/pages/all-candidates.module.scss';
 import statsCandidates from '@/utils/statsCandidates';
 import useCandidatesStore from '@/stores/candidates';
 import useJobsStore from '@/stores/jobs';
