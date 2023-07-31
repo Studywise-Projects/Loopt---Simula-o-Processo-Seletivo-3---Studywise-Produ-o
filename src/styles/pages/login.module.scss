@@ -23,7 +23,7 @@
   gap: 32px;
   justify-content: center;
 
-  @media only screen and (min-width: 1024px){
+  @media only screen and (min-width: 1024px) and (min-height: 600px){
     border-radius: 20px;
     box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.10);
     height: 80%;
