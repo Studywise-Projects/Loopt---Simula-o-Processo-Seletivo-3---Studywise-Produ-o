@@ -4,7 +4,7 @@ import useJobsStore from '@/stores/jobs';
 import formatArrayToString from '@/utils/formatArrayToString';
 import { Box, Stack } from '@mui/material';
 import Image from 'next/image';
-import styles from '@/styles/pages/chosen-candidate.module.scss';
+import styles from '@/styles/pages/chosenCandidate.module.scss';
 import usePatchCandidate from '@/services/api/usePatchCandidate';
 import { useRouter } from 'next/router';
 import verifyRoutePath from '@/utils/verifyRoutePath';
