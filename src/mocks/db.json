@@ -501,6 +501,12 @@
       "username": "jgutierres",
       "password": "MjAyM0Bsb29wdA==",
       "loggedIn": false
+    },
+    {
+      "id": 4,
+      "username": "default",
+      "password": "ZGVmYXVsdEBsb29wdA==",
+      "loggedIn": false
     }
   ]
 }

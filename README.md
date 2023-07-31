@@ -27,3 +27,9 @@ Execute o servidor next:
 ```
 yarn dev ou npm run dev
 ```
+
+Conta default para login na plataforma:
+```
+username: default
+senha: default@loopt
+```
