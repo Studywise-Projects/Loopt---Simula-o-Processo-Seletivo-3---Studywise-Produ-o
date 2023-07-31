@@ -99,7 +99,7 @@ function LeftDrawer({
 
           {approvedCandidate.length > 0 ? (
             <Link
-              href={`/candidates/${approvedCandidate[0]?.id}`}
+              href={`/candidates/approved/${approvedCandidate[0]?.id}`}
               className={styles.link}
             >
               <ListItemButton className={styles.listItem}>
