@@ -46,7 +46,10 @@ function ApprovedCandidate() {
           <Typography
             variant='caption'
             text={formatArrayToString({
-              value: approvedCandidate[0]?.skills,
+              value:
+                approvedCandidate.length > 0
+                  ? approvedCandidate[0]?.skills
+                  : [''],
               min: 0,
               max: 50,
             })}
