@@ -8,7 +8,6 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:storybook/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -28,5 +27,7 @@ module.exports = {
   rules: {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    'no-unused-vars': 'off'
   },
+  ignorePatterns: ["/src/store/"]
 };

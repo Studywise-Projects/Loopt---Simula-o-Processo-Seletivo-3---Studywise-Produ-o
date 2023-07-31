@@ -4,7 +4,7 @@ import styles from '@/styles/pages/login.module.scss';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import useAuthStore from '@/stores/auth';
 import usePostLogin from '@/services/api/usePostLogin';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import useJobsStore from '@/stores/jobs';
 import useErrorStore from '@/stores/error';
 

@@ -9,7 +9,7 @@ export default function Document() {
           name='description'
           content='Site de gestão de processos seletivos da Loopt'
         />
-        <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+        <meta content='text/html;charset=UTF-8' />
         <meta name='author' content='Gabriel Fernandes - Loopt' />
         <meta
           name='keywords'

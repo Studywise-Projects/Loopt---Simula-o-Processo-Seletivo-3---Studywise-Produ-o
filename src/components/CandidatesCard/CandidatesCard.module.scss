@@ -11,7 +11,7 @@
   width: 100%;
 
   @media only screen and (min-width: 1024px) {
-    box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.10);
+    box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.1);
     width: 65%;
   }
 }
@@ -31,7 +31,7 @@
 
 .cardCandidate {
   align-items: center;
-  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   padding: 16px;
   flex-direction: row;
@@ -64,7 +64,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  
+
   @media only screen and (min-width: 768px) {
     justify-content: center;
   }
@@ -107,7 +107,7 @@
 
 .divider {
   display: none;
-  
+
   @media only screen and (min-width: 1024px) {
     align-self: center;
     width: 70%;

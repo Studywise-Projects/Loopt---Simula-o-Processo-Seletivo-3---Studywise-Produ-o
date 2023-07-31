@@ -21,7 +21,7 @@
 
 .image {
   display: none;
-  
+
   @media only screen and (min-width: 1024px) {
     display: block;
     width: 100%;
@@ -34,20 +34,20 @@
   flex: 1;
   height: 100%;
   justify-content: center;
-  
+
   @media only screen and (min-width: 1024px) {
     width: 50%;
   }
 }
 
 .rightContent {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 320px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 320px;
+  text-align: center;
 
-    @media only screen and (min-width: 1024px) {
-      width: 420px;
-    }
+  @media only screen and (min-width: 1024px) {
+    width: 420px;
+  }
 }
