@@ -1,0 +1,9 @@
+@import '@/styles/_global.scss';
+
+.backdrop {
+  z-index: 9999;
+}
+
+.circularProgress {
+  color: $primary-color;
+}
