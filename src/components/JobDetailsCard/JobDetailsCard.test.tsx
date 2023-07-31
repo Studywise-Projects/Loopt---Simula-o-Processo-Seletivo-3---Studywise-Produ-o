@@ -1,6 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
 import JobDetailsCard from './JobDetailsCard';
-import { ChangeEvent } from 'react';
 
 describe('JobDetailsCard', () => {
   it('Should match the snapshot', () => {
