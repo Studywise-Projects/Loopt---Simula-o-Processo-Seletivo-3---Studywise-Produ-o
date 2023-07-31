@@ -2,12 +2,19 @@ import { ICandidate } from '@/interfaces/ICandidate';
 import { IJob } from '@/interfaces/IJob';
 import shuffleCandidates from './shuffleCandidates';
 
-function searchCandidate(
-  searchValue: string,
-  selectedJob: IJob,
-  candidates: Array<ICandidate>,
-  maxCandidates: 5 | 'all',
-) {
+interface ISearchCandidate {
+  searchValue: string;
+  selectedJob: IJob;
+  candidates: Array<ICandidate>;
+  maxCandidates: 5 | 'all';
+}
+
+function searchCandidate({
+  searchValue,
+  selectedJob,
+  candidates,
+  maxCandidates,
+}: ISearchCandidate) {
   // if the search field is filled in, it searches candidates through the name being typed
   if (searchValue.length > 0) {
     return candidates.filter(
@@ -24,7 +31,11 @@ function searchCandidate(
         candidate.jobId === selectedJob.id && !candidate.approved,
     );
 
-    return shuffleCandidates(filteredValue, selectedJob.id, maxCandidates);
+    return shuffleCandidates({
+      candidates: filteredValue,
+      jobId: selectedJob.id,
+      limit: maxCandidates,
+    });
   }
 }
 
