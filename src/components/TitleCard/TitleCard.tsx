@@ -1,4 +1,4 @@
-import { Box, Card, CardActions, Tooltip } from '@mui/material';
+import { Box, Card, CardActions } from '@mui/material';
 import { Typography, Button, SearchBar } from '@/components';
 import styles from './TitleCard.module.scss';
 
@@ -26,13 +26,11 @@ function TitleCard({
             <Typography variant='caption' text={caption} />
           </Box>
           <CardActions className={styles.actions}>
-            <Tooltip title='Ver outros candidatos'>
-              <Button
-                text={actionButtonText}
-                handleClick={handleClick}
-                isAuxButton={true}
-              />
-            </Tooltip>
+            <Button
+              text={actionButtonText}
+              handleClick={handleClick}
+              isAuxButton={true}
+            />
           </CardActions>
         </Card>
       ) : (

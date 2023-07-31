@@ -38,6 +38,7 @@ export default function Home() {
           alt='loopt background'
           width={512}
           height={800}
+          priority={false}
           className={styles.image}
         />
       </Stack>

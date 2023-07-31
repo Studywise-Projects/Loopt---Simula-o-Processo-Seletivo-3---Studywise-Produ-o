@@ -45,7 +45,11 @@ function ApprovedCandidate() {
           <Typography variant='body' text='Habilidades' />
           <Typography
             variant='caption'
-            text={formatArrayToString(approvedCandidate[0]?.skills, 0, 50)}
+            text={formatArrayToString({
+              value: approvedCandidate[0]?.skills,
+              min: 0,
+              max: 50,
+            })}
           />
         </Box>
         <Box className={styles.buttons}>
