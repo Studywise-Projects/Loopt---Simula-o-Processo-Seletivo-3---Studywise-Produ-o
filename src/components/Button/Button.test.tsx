@@ -1,4 +1,4 @@
-import { render, fireEvent, getByTestId } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import Button from './Button';
 
 describe('Button', () => {
