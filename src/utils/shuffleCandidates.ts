@@ -1,12 +1,14 @@
 import { ICandidate } from '@/interfaces/ICandidate';
 
-function shuffleCandidates(
-  array: Array<ICandidate>,
-  jobId: number,
-  limit: 5 | 'all',
-) {
+interface IShuffleCandidates {
+  candidates: Array<ICandidate>;
+  jobId: number;
+  limit: 5 | 'all';
+}
+
+function shuffleCandidates({ candidates, jobId, limit }: IShuffleCandidates) {
   // generate random order in candidates array
-  const newArray: Array<ICandidate> = array
+  const newArray: Array<ICandidate> = candidates
     .filter((candidate) => candidate.jobId === jobId && !candidate.approved)
     .slice();
   for (let i = newArray.length - 1; i > 0; i--) {

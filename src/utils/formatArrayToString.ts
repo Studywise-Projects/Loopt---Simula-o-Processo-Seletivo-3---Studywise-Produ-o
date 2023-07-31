@@ -1,4 +1,10 @@
-function formatArrayToString(value: Array<any>, min: number, max: number) {
+interface IFormatArrayToString {
+  value: Array<string>;
+  min: number;
+  max: number;
+}
+
+function formatArrayToString({ value, min, max }: IFormatArrayToString) {
   // enforce value to string and replace "," to " | "
   let newValue = value.toString().replaceAll(',', ' | ');
 

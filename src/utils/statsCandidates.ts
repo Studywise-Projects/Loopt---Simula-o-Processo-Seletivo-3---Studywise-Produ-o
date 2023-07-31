@@ -1,10 +1,16 @@
 import { ICandidate } from '@/interfaces/ICandidate';
 
-function statsCandidates(
-  candidates: Array<ICandidate>,
-  jobId: number,
-  requestedData: 'countTotal' | 'countApproveds',
-) {
+interface IStatsCandidates {
+  candidates: Array<ICandidate>;
+  jobId: number;
+  requestedData: 'countTotal' | 'countApproveds';
+}
+
+function statsCandidates({
+  candidates,
+  jobId,
+  requestedData,
+}: IStatsCandidates) {
   // Counts the total number of approved candidates
   const countTotal = candidates.filter(
     (candidate: ICandidate) =>

@@ -28,16 +28,16 @@ function AllCandidates() {
     setSearch(event.target.value);
   };
 
-  const candidatesTotal = statsCandidates(
-    candidates,
-    selectedJob.id,
-    'countTotal',
-  );
-  const approvedsTotal = statsCandidates(
-    candidates,
-    selectedJob.id,
-    'countApproveds',
-  );
+  const candidatesTotal = statsCandidates({
+    candidates: candidates,
+    jobId: selectedJob.id,
+    requestedData: 'countTotal',
+  });
+  const approvedsTotal = statsCandidates({
+    candidates: candidates,
+    jobId: selectedJob.id,
+    requestedData: 'countApproveds',
+  });
 
   const { refetch } = useGetCandidates('all');
 
@@ -71,7 +71,12 @@ function AllCandidates() {
           <CandidatesCard
             candidates={
               search.length > 0
-                ? searchCandidate(search, selectedJob, candidates, 'all')
+                ? searchCandidate({
+                    searchValue: search,
+                    selectedJob: selectedJob,
+                    candidates: candidates,
+                    maxCandidates: 'all',
+                  })
                 : filteredCandidates
             }
             withButton={true}

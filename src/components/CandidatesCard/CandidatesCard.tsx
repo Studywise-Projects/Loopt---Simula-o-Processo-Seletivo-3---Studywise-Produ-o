@@ -9,6 +9,7 @@ import Button from '../Button/Button';
 import formatCandidateName from '@/utils/formatCandidateName';
 import formatArrayToString from '@/utils/formatArrayToString';
 import classNames from 'classnames';
+import { Fragment } from 'react';
 
 interface ICandidatesCard {
   candidates: Array<ICandidate>;
@@ -30,10 +31,9 @@ function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
     <Card className={styles.card} id={styles.cardRoot}>
       <CardContent className={styles.cardContent}>
         {candidates?.map((candidate: ICandidate, index: number) => (
-          <>
+          <Fragment key={index}>
             <Stack
               data-testid='candidates-card'
-              key={index}
               className={styles.cardCandidate}
               onClick={() => {
                 setSelectedCandidate(candidate);
@@ -70,7 +70,11 @@ function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
                 <Typography variant='subtitle2' text='Habilidades' />
                 <Typography
                   variant='caption'
-                  text={formatArrayToString(candidate.skills, 0, 25)}
+                  text={formatArrayToString({
+                    value: candidate.skills,
+                    min: 0,
+                    max: 25,
+                  })}
                 />
               </Box>
               {withButton === true ? (
@@ -94,7 +98,7 @@ function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
             <Box className={styles.dividerContainer}>
               <Divider className={styles.divider} />
             </Box>
-          </>
+          </Fragment>
         ))}
       </CardContent>
     </Card>

@@ -19,7 +19,12 @@ function useGetCandidates(maxCandidates: any) {
         .then((res) => {
           setCandidates(res.data);
           setFilteredCandidates(
-            searchCandidate('', selectedJob, res.data, maxCandidates),
+            searchCandidate({
+              searchValue: '',
+              selectedJob: selectedJob,
+              candidates: res.data,
+              maxCandidates: maxCandidates,
+            }),
           );
         })
         .catch(() => {});

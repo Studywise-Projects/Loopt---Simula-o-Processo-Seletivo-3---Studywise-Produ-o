@@ -24,16 +24,16 @@ function Candidates() {
 
   const handleChangeSearch = (event: any) => setSearch(event.target.value);
 
-  const candidatesTotal = statsCandidates(
-    candidates,
-    selectedJob.id,
-    'countTotal',
-  );
-  const approvedsTotal = statsCandidates(
-    candidates,
-    selectedJob.id,
-    'countApproveds',
-  );
+  const candidatesTotal = statsCandidates({
+    candidates: candidates,
+    jobId: selectedJob.id,
+    requestedData: 'countTotal',
+  });
+  const approvedsTotal = statsCandidates({
+    candidates: candidates,
+    jobId: selectedJob.id,
+    requestedData: 'countApproveds',
+  });
 
   const { refetch } = useGetCandidates(5);
 
@@ -47,7 +47,14 @@ function Candidates() {
 
   useEffect(() => {
     refetch();
-    setFilteredCandidates(searchCandidate(search, selectedJob, candidates, 5));
+    setFilteredCandidates(
+      searchCandidate({
+        searchValue: search,
+        selectedJob: selectedJob,
+        candidates: candidates,
+        maxCandidates: 5,
+      }),
+    );
   }, [selectedJob]);
 
   return (
@@ -59,7 +66,12 @@ function Candidates() {
           actionButtonText='Embaralhar'
           handleClick={() => {
             setFilteredCandidates(
-              searchCandidate(search, selectedJob, candidates, 5),
+              searchCandidate({
+                searchValue: search,
+                selectedJob: selectedJob,
+                candidates: candidates,
+                maxCandidates: 5,
+              }),
             );
           }}
         />
@@ -67,7 +79,12 @@ function Candidates() {
           <CandidatesCard
             candidates={
               search.length > 0
-                ? searchCandidate(search, selectedJob, candidates, 5)
+                ? searchCandidate({
+                    searchValue: search,
+                    selectedJob: selectedJob,
+                    candidates: candidates,
+                    maxCandidates: 5,
+                  })
                 : filteredCandidates
             }
           />
