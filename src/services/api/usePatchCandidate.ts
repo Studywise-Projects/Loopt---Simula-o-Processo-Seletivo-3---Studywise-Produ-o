@@ -4,17 +4,17 @@ import useGetCandidates from './useGetCandidates';
 import { ICandidate } from '@/interfaces/ICandidate';
 import useCandidatesStore from '@/stores/candidates';
 import useJobsStore from '@/stores/jobs';
+import verifyChosenCandidate from '@/utils/verifyChosenCandidate';
 
 function usePatchCandidateApproved(candidate: ICandidate, maxCandidates: any) {
   const candidates = useCandidatesStore((state) => state.candidates);
   const selectedJob = useJobsStore((state) => state.selectedJob);
   const { refetch } = useGetCandidates(maxCandidates);
 
-  const chosenCandidate = candidates.filter(
-    (chosenCandidate: ICandidate) =>
-      chosenCandidate.approved === true &&
-      chosenCandidate.jobId === selectedJob.id,
-  );
+  const chosenCandidate = verifyChosenCandidate({
+    candidates: candidates,
+    selectedJobId: selectedJob.id,
+  });
 
   if (chosenCandidate.length < 1) {
     return useMutation({
