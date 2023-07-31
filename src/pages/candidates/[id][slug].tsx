@@ -10,6 +10,8 @@ import { useRouter } from 'next/router';
 import verifyRoutePath from '@/utils/verifyRoutePath';
 import { ICandidate } from '@/interfaces/ICandidate';
 import AlertDialog from '@/components/AlertDialog/AlertDialog';
+import { useEffect } from 'react';
+import useAuthStore from '@/stores/auth';
 
 function ChosenCandidate() {
   const selectedJob = useJobsStore((state) => state.selectedJob);
@@ -17,6 +19,7 @@ function ChosenCandidate() {
     state.candidates,
     state.selectedCandidate,
   ]);
+  const loggedIn = useAuthStore((state) => state.loggedIn);
 
   const router = useRouter();
 
@@ -29,6 +32,12 @@ function ChosenCandidate() {
     selectedCandidate,
     verifyRoutePath(router.asPath),
   );
+
+  useEffect(() => {
+    if (loggedIn === false || candidates.length < 1) {
+      router.push('/');
+    }
+  }, []);
 
   return (
     <Layout variant='basic'>
