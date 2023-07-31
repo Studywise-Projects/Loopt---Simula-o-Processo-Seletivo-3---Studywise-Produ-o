@@ -1,17 +1,18 @@
-import '@testing-library/jest-dom';
-import { shallow } from 'enzyme';
+import { fireEvent, render } from '@testing-library/react';
 import Typography from './Typography';
 
 describe('Typography', () => {
   it('Should match the snapshot', () => {
-    const wrapper = shallow(<Typography variant='body' text='Body' />);
+    const { getByText } = render(<Typography variant='body' text='test' />);
 
-    expect(wrapper).toMatchSnapshot();
+    const element = getByText('test');
+    expect(element).toMatchSnapshot();
   });
 
-  it('Should render with the correctly text', () => {
-    const wrapper = shallow(<Typography variant='titleBlue' text='title' />);
+  it('Should render correctly', () => {
+    const { getByText } = render(<Typography variant='body' text='test' />);
 
-    expect(wrapper.text()).toBe('title');
+    const element = getByText('test');
+    expect(element).toBeInTheDocument();
   });
 });
