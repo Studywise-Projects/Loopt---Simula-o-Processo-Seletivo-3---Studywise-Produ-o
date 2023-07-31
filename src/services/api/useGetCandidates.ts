@@ -22,9 +22,7 @@ function useGetCandidates(maxCandidates: any) {
             searchCandidate('', selectedJob, res.data, maxCandidates),
           );
         })
-        .catch(() => {
-          return new Error('Erro na query useGetCandidates');
-        });
+        .catch(() => {});
     },
     { enabled: false },
   );

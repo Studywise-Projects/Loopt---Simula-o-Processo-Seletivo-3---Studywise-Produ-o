@@ -12,6 +12,7 @@ import AlertDialog from '@/components/AlertDialog/AlertDialog';
 import { useEffect } from 'react';
 import useAuthStore from '@/stores/auth';
 import verifyChosenCandidate from '@/utils/verifyChosenCandidate';
+import useGetCandidates from '@/services/api/useGetCandidates';
 
 function ChosenCandidate() {
   const selectedJob = useJobsStore((state) => state.selectedJob);
@@ -28,10 +29,9 @@ function ChosenCandidate() {
     selectedJobId: selectedJob.id,
   });
 
-  const mutation: any = usePatchCandidate(
-    selectedCandidate,
-    verifyRoutePath(router.asPath),
-  );
+  const mutation: any = usePatchCandidate(selectedCandidate);
+
+  const { refetch } = useGetCandidates(verifyRoutePath(router.asPath));
 
   useEffect(() => {
     if (loggedIn === false || candidates.length < 1) {
@@ -84,7 +84,10 @@ function ChosenCandidate() {
               handleClickDisagree={() => router.back()}
               handleClickAgree={() => {
                 mutation.mutate();
-                router.back();
+                refetch();
+                setTimeout(() => {
+                  router.back();
+                }, 200);
               }}
             />
           ) : (
@@ -92,6 +95,7 @@ function ChosenCandidate() {
               text='Confirmar'
               handleClick={() => {
                 mutation.mutate();
+                refetch();
                 router.back();
               }}
               isAuxButton={true}
