@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchBar Should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`SearchBar Should match the snapshot 1`] = `
+<input
+  aria-invalid="false"
+  class="MuiInputBase-input MuiInput-input MuiInputBase-inputTypeSearch css-c63i49-MuiInputBase-input-MuiInput-input"
+  id="search-bar-test"
+  type="search"
+  value=""
+/>
+`;
