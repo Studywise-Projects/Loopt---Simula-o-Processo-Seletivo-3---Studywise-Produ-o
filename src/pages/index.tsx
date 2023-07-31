@@ -13,16 +13,16 @@ export default function Home() {
     state.selectedJob,
     state.setSelectedJob,
   ]);
+
   const handleChangeSelectedJob = (event: any) =>
     setSelectedJob(event.target.value);
-
   const handlePressEnter = (event: any) => {
     if (event.key === 'enter') {
       router.push('login');
     }
   };
 
-  const { refetch, isRefetching } = useGetJobs();
+  const { refetch } = useGetJobs();
 
   const router = useRouter();
 
@@ -63,7 +63,6 @@ export default function Home() {
                 router.push('login');
               }}
               handleKeyPress={handlePressEnter}
-              isLoading={isRefetching === false ? false : true}
             />
           </Box>
         </Box>
