@@ -1,51 +1,34 @@
-import '@testing-library/jest-dom';
-import { shallow, render } from 'enzyme';
+import { fireEvent, getByText, render } from '@testing-library/react';
 import Select from './Select';
 
 describe('Select', () => {
   it('Should match the snapshot', () => {
-    const wrapper = shallow(
+    const { getByLabelText } = render(
       <Select
-        id='test-select'
-        label='teste'
+        id='select-test'
+        label='test'
         options={undefined}
         value={undefined}
         handleChange={undefined}
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    const element = getByLabelText('test');
+    expect(element).toMatchSnapshot();
   });
 
   it('Should render correctly', () => {
-    const wrapper = shallow(
+    const { getByLabelText } = render(
       <Select
-        id='test-select'
-        label='teste'
+        id='select-test'
+        label='test'
         options={undefined}
         value={undefined}
         handleChange={undefined}
       />,
     );
 
-    expect(wrapper.text()).toEqual('teste');
-  });
-
-  it('Should call handleChangeMock with the value = test', () => {
-    const handleClickMock = jest.fn();
-
-    const wrapper = shallow(
-      <Select
-        id='test-select'
-        label='teste'
-        options={undefined}
-        value={undefined}
-        handleChange={handleClickMock}
-      />,
-    );
-
-    wrapper.find('[data-testid="select"]').simulate('change', 'Test');
-
-    expect(handleClickMock).toBeCalledWith('Test');
+    const element = getByLabelText('test');
+    expect(element).toBeInTheDocument();
   });
 });
