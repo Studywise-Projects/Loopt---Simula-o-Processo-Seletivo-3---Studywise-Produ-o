@@ -8,19 +8,36 @@ import styles from '@/styles/pages/chosenCandidate.module.scss';
 import usePatchCandidate from '@/services/api/usePatchCandidate';
 import { useRouter } from 'next/router';
 import verifyRoutePath from '@/utils/verifyRoutePath';
+import AlertDialog from '@/components/AlertDialog/AlertDialog';
+import { useEffect } from 'react';
+import useAuthStore from '@/stores/auth';
+import verifyChosenCandidate from '@/utils/verifyChosenCandidate';
+import useGetCandidates from '@/services/api/useGetCandidates';
 
 function ChosenCandidate() {
   const selectedJob = useJobsStore((state) => state.selectedJob);
-  const selectedCandidate = useCandidatesStore(
-    (state) => state.selectedCandidate,
-  );
+  const [candidates, selectedCandidate] = useCandidatesStore((state) => [
+    state.candidates,
+    state.selectedCandidate,
+  ]);
+  const loggedIn = useAuthStore((state) => state.loggedIn);
 
   const router = useRouter();
 
-  const mutation: any = usePatchCandidate(
-    selectedCandidate,
-    verifyRoutePath(router.asPath),
-  );
+  const chosenCandidate = verifyChosenCandidate({
+    candidates: candidates,
+    selectedJobId: selectedJob.id,
+  });
+
+  const mutation: any = usePatchCandidate(selectedCandidate);
+
+  const { refetch } = useGetCandidates(verifyRoutePath(router.asPath));
+
+  useEffect(() => {
+    if (loggedIn === false || candidates.length < 1) {
+      router.push('/');
+    }
+  }, []);
 
   return (
     <Layout variant='basic'>
@@ -57,14 +74,33 @@ function ChosenCandidate() {
             isAuxButton={true}
             isSecondaryButton={true}
           />
-          <Button
-            text='Confirmar'
-            handleClick={() => {
-              mutation.mutate();
-              router.back();
-            }}
-            isAuxButton={true}
-          />
+          {chosenCandidate.length > 0 ? (
+            <AlertDialog
+              buttonText='Confirmar'
+              dialogTitle='Candidato já escolhido'
+              dialogText='Você já escolheu um candido para esta vaga, deseja substituir o candidato escolhido e prosseguir?'
+              disagreeButtonText='Cancelar'
+              agreeButtonText='Confirmar'
+              handleClickDisagree={() => router.back()}
+              handleClickAgree={() => {
+                mutation.mutate();
+                refetch();
+                setTimeout(() => {
+                  router.back();
+                }, 200);
+              }}
+            />
+          ) : (
+            <Button
+              text='Confirmar'
+              handleClick={() => {
+                mutation.mutate();
+                refetch();
+                router.back();
+              }}
+              isAuxButton={true}
+            />
+          )}
         </Box>
       </Stack>
     </Layout>

@@ -1,17 +1,32 @@
-import '@testing-library/jest-dom';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import LeftDrawer from './LeftDrawer';
 
-describe('LeftDrawer', () => {
+jest.mock('next/router', () => require('next-router-mock'));
+
+describe('JobDetailsCard', () => {
   it('Should match the snapshot', () => {
-    const wrapper = shallow(
+    const { getByLabelText } = render(
       <LeftDrawer
-        optionsSelect={undefined}
+        optionsSelect={[{ id: 1, label: 'Desenvolvedor Front-End' }]}
         valueSelect={null}
-        handleChangeSelect={() => undefined}
+        handleChangeSelect={undefined}
       />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    const element = getByLabelText('Vaga');
+    expect(element).toMatchSnapshot();
+  });
+
+  it('Should render correctly', () => {
+    const { getByLabelText } = render(
+      <LeftDrawer
+        optionsSelect={[{ id: 1, label: 'Desenvolvedor Front-End' }]}
+        valueSelect={null}
+        handleChangeSelect={undefined}
+      />,
+    );
+
+    const element = getByLabelText('Vaga');
+    expect(element).toBeInTheDocument();
   });
 });

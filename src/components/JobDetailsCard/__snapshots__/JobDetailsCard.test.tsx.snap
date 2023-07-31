@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobDetailsCard Should match the snapshot 1`] = `
+<p
+  class="MuiTypography-root MuiTypography-body1 undefined css-ahj2mt-MuiTypography-root"
+>
+  ReactJs
+</p>
+`;

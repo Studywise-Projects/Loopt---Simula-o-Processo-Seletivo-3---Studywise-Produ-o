@@ -4,7 +4,7 @@ import searchCandidate from '@/utils/searchCandidate';
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-function useGetCandidates(maxCandidates: 5 | 'all') {
+function useGetCandidates(maxCandidates: any) {
   const [setCandidates, setFilteredCandidates] = useCandidatesStore((state) => [
     state.setCandidates,
     state.setFilteredCandidate,
@@ -22,9 +22,7 @@ function useGetCandidates(maxCandidates: 5 | 'all') {
             searchCandidate('', selectedJob, res.data, maxCandidates),
           );
         })
-        .catch(() => {
-          return new Error('Erro na query useGetCandidates');
-        });
+        .catch(() => {});
     },
     { enabled: false },
   );

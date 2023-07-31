@@ -20,6 +20,7 @@ function shuffleCandidates(
   // generate array without limit
   const allRandomCandidates = newArray;
 
+  // returns the number of candidates according to the limit property
   if (limit !== 'all') {
     return fiveRandomCandidates;
   } else {

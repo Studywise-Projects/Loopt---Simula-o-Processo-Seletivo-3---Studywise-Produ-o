@@ -8,6 +8,7 @@ function searchCandidate(
   candidates: Array<ICandidate>,
   maxCandidates: 5 | 'all',
 ) {
+  // if the search field is filled in, it searches candidates through the name being typed
   if (searchValue.length > 0) {
     return candidates.filter(
       (candidate: ICandidate) =>
@@ -15,7 +16,9 @@ function searchCandidate(
         candidate.jobId === selectedJob.id &&
         candidate.approved === false,
     );
-  } else {
+  }
+  // else it shows the candidates at random, filtering only the selected vacancy and unapproved candidates
+  else {
     const filteredValue = candidates.filter(
       (candidate: ICandidate) =>
         candidate.jobId === selectedJob.id && !candidate.approved,

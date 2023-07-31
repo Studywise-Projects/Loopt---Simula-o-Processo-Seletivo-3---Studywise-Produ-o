@@ -4,17 +4,18 @@ import useJobsStore from '@/stores/jobs';
 import formatArrayToString from '@/utils/formatArrayToString';
 import { Box, Stack } from '@mui/material';
 import Image from 'next/image';
-import styles from '@/styles/pages/chosenCandidate.module.scss';
-import usePatchCandidate from '@/services/api/usePatchCandidate';
+import styles from '@/styles/pages/approvedCandidate.module.scss';
 import { useRouter } from 'next/router';
+import verifyChosenCandidate from '@/utils/verifyChosenCandidate';
 
-function ChosenCandidate() {
+function ApprovedCandidate() {
   const selectedJob = useJobsStore((state) => state.selectedJob);
-  const selectedCandidate = useCandidatesStore(
-    (state) => state.selectedCandidate,
-  );
+  const candidates = useCandidatesStore((state) => state.candidates);
 
-  const mutation: any = usePatchCandidate(selectedCandidate.id);
+  const approvedCandidate = verifyChosenCandidate({
+    candidates: candidates,
+    selectedJobId: selectedJob.id,
+  });
 
   const router = useRouter();
 
@@ -22,16 +23,19 @@ function ChosenCandidate() {
     <Layout variant='basic'>
       <Stack className={styles.card}>
         <Image
-          src={selectedCandidate.picture}
-          alt={selectedCandidate.name}
+          src={approvedCandidate[0]?.picture}
+          alt={approvedCandidate[0]?.name}
           width={160}
           height={160}
           className={styles.profilePicture}
         />
         <Box className={styles.highlightContent}>
-          <Typography variant='subtitle' text={selectedCandidate.name} />
+          <Typography variant='subtitle' text={approvedCandidate[0]?.name} />
           <Typography variant='body' text='|' />
-          <Typography variant='body' text={`${selectedCandidate.age} anos`} />
+          <Typography
+            variant='body'
+            text={`${approvedCandidate[0]?.age} anos`}
+          />
         </Box>
         <Box className={styles.job}>
           <Typography variant='body' text='Vaga Desejada' />
@@ -41,23 +45,17 @@ function ChosenCandidate() {
           <Typography variant='body' text='Habilidades' />
           <Typography
             variant='caption'
-            text={formatArrayToString(selectedCandidate.skills, 0, 50)}
+            text={formatArrayToString(approvedCandidate[0]?.skills, 0, 50)}
           />
         </Box>
         <Box className={styles.buttons}>
           <Button
             text='Voltar'
-            handleClick={() => router.back()}
-            isAuxButton={true}
-            isSecondaryButton={true}
-          />
-          <Button
-            text='Confirmar'
             handleClick={() => {
-              mutation.mutate();
               router.back();
+              console.log(approvedCandidate);
             }}
-            isAuxButton={true}
+            isSecondaryButton={true}
           />
         </Box>
       </Stack>
@@ -65,4 +63,4 @@ function ChosenCandidate() {
   );
 }
 
-export default ChosenCandidate;
+export default ApprovedCandidate;

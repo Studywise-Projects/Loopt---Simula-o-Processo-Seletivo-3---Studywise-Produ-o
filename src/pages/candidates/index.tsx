@@ -40,15 +40,15 @@ function Candidates() {
   const router = useRouter();
 
   useEffect(() => {
-    refetch();
-    setFilteredCandidates(searchCandidate(search, selectedJob, candidates, 5));
-  }, [candidates === undefined || selectedJob]);
-
-  useEffect(() => {
-    if (loggedIn === false) {
+    if (loggedIn === false || candidates.length < 1) {
       router.push('/');
     }
-  }, [loggedIn]);
+  }, []);
+
+  useEffect(() => {
+    refetch();
+    setFilteredCandidates(searchCandidate(search, selectedJob, candidates, 5));
+  }, [selectedJob]);
 
   return (
     <Layout variant='main' headerText='Candidatos'>

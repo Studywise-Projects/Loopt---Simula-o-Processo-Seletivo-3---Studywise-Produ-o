@@ -9,13 +9,21 @@
   width: 100%;
 }
 
+.errorContainer {
+  width: 320px;
+
+  @media only screen and (min-width: 1024px) {
+    width: 420px;
+  }
+}
+
 .formLogin {
   align-items: center;
   flex-direction: column;
   gap: 32px;
   justify-content: center;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1024px){
     border-radius: 20px;
     box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.10);
     height: 80%;

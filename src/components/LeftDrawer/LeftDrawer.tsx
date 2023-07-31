@@ -17,6 +17,9 @@ import styles from './LeftDrawer.module.scss';
 import Link from 'next/link';
 import Select from '../Select/Select';
 import useCandidatesStore from '@/stores/candidates';
+import useJobsStore from '@/stores/jobs';
+import { ICandidate } from '@/interfaces/ICandidate';
+import { useRouter } from 'next/router';
 
 interface ILeftDrawer {
   optionsSelect: any;
@@ -31,9 +34,8 @@ function LeftDrawer({
 }: ILeftDrawer) {
   const [state, setState] = useState(false);
 
-  const selectedCandidate = useCandidatesStore(
-    (state) => state.selectedCandidate,
-  );
+  const candidates = useCandidatesStore((state) => state.candidates);
+  const selectedJob = useJobsStore((state) => state.selectedJob);
 
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -48,6 +50,13 @@ function LeftDrawer({
 
       setState(open);
     };
+
+  const approvedCandidate = candidates.filter(
+    (candidate: ICandidate) =>
+      candidate.jobId === selectedJob.id && candidate.approved === true,
+  );
+
+  const router = useRouter();
 
   return (
     <>
@@ -87,24 +96,38 @@ function LeftDrawer({
               <ListItemIcon className={styles.listIcon}>
                 <HomeIcon />
               </ListItemIcon>
-              <ListItemText primary='Home' className={styles.listText} />
-            </ListItemButton>
-          </Link>
-
-          <Link
-            href={`/candidates/${selectedCandidate.id}`}
-            className={styles.link}
-          >
-            <ListItemButton className={styles.listItem}>
-              <ListItemIcon className={styles.listIcon}>
-                <StarIcon />
-              </ListItemIcon>
               <ListItemText
-                primary='Candidato Escolhido'
-                className={styles.listText}
+                primary='Home'
+                className={`${styles.listText} ${
+                  router.pathname === '/candidates' ? styles.textBold : ''
+                }`}
               />
             </ListItemButton>
           </Link>
+
+          {approvedCandidate.length > 0 ? (
+            <Link
+              href={`/candidates/approved/${approvedCandidate[0]?.id}`}
+              className={styles.link}
+            >
+              <ListItemButton className={styles.listItem}>
+                <ListItemIcon className={styles.listIcon}>
+                  <StarIcon />
+                </ListItemIcon>
+                <ListItemText
+                  primary='Candidato Escolhido'
+                  className={`${styles.listText} ${
+                    router.pathname ===
+                    `/candidates/approved/${approvedCandidate[0]?.id}`
+                      ? styles.textBold
+                      : ''
+                  }`}
+                />
+              </ListItemButton>
+            </Link>
+          ) : (
+            <></>
+          )}
 
           <Link href='candidates/all' className={styles.link}>
             <ListItemButton className={styles.listItem}>
@@ -113,7 +136,9 @@ function LeftDrawer({
               </ListItemIcon>
               <ListItemText
                 primary='Todos os Candidatos'
-                className={styles.listText}
+                className={`${styles.listText} ${
+                  router.pathname === '/candidates/all' ? styles.textBold : ''
+                }`}
               />
             </ListItemButton>
           </Link>

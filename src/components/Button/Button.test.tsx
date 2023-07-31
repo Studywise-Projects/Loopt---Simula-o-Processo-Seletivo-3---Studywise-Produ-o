@@ -1,42 +1,34 @@
-import '@testing-library/jest-dom';
-import { shallow } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 import Button from './Button';
 
 describe('Button', () => {
   it('Should match the snapshot', () => {
-    const wrapper = shallow(
-      <Button
-        variant='contained'
-        isAuxButton={false}
-        text='Button'
-        handleClick={() => undefined}
-      />,
+    const { getByText } = render(
+      <Button text='Button' handleClick={undefined} />,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    const element = getByText('Button');
+    expect(element).toMatchSnapshot();
   });
 
   it('Should render correctly', () => {
-    const wrapper = shallow(
-      <Button
-        variant='contained'
-        isAuxButton={false}
-        text='Button'
-        handleClick={() => undefined}
-      />,
+    const { getByText } = render(
+      <Button text='Button' handleClick={undefined} />,
     );
 
-    expect(wrapper.text()).toEqual('Button');
+    const element = getByText('Button');
+    expect(element).toBeInTheDocument();
   });
 
   it('Should call handleClickMock function once', () => {
     const handleClickMock = jest.fn();
 
-    const wrapper = shallow(
+    const { getByText } = render(
       <Button text='Button' handleClick={handleClickMock} />,
     );
 
-    wrapper.find('[data-test-id="button"]').simulate('click');
+    const element = getByText('Button');
+    fireEvent.click(element);
 
     expect(handleClickMock).toHaveBeenCalledTimes(1);
   });

@@ -1,4 +1,5 @@
 import useAuthStore from '@/stores/auth';
+import useErrorStore from '@/stores/error';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
@@ -9,14 +10,23 @@ function usePostLogin() {
     state.password,
     state.setLoggedIn,
   ]);
+  const setError = useErrorStore((state) => state.setError);
 
   const router = useRouter();
 
   const patchLoggedIn = (id: number) => {
-    axios.get(`http://localhost:5000/users/${id}`).then(() => {
-      setLoggedIn(true);
-      router.push('candidates');
-    });
+    axios
+      .get(`http://localhost:5000/users/${id}`)
+      .then(() => {
+        setError('');
+        setLoggedIn(true);
+        router.push('candidates');
+      })
+      .catch(() => {
+        setError(
+          `Algo deu errado. Tente novamente ou entre em contato com um administrador!`,
+        );
+      });
   };
 
   return useQuery(
@@ -30,9 +40,8 @@ function usePostLogin() {
           },
         })
         .then((res) => {
-          patchLoggedIn(res.data[0].id);
-        })
-        .catch(() => {});
+          patchLoggedIn(res.data[0]?.id);
+        });
     },
     { enabled: false },
   );

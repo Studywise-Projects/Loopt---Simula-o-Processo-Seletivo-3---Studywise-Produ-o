@@ -48,10 +48,10 @@ function AllCandidates() {
   }, [selectedJob]);
 
   useEffect(() => {
-    if (loggedIn === false) {
+    if (loggedIn === false || candidates.length < 1) {
       router.push('/');
     }
-  }, [loggedIn]);
+  }, []);
 
   return (
     <Layout

@@ -25,12 +25,12 @@ function JobDetailsCard({ job, value, handleChange }: IJobDetailsCard) {
         <Typography variant='subtitle' text='Detalhes da Vaga' />
         <Box className={styles.jobDetailsContainer}>
           <Typography variant='body' text='Requisitos' />
-          {job?.requirements.map((requirement: string) => (
-            <Typography variant='caption' text={requirement} />
+          {job?.requirements.map((requirement: string, index: number) => (
+            <Typography variant='caption' text={requirement} key={index} />
           ))}
           <Typography variant='body' text='Diferenciais' />
-          {job?.differentials.map((differential: string) => (
-            <Typography variant='caption' text={differential} />
+          {job?.differentials.map((differential: string, index: number) => (
+            <Typography variant='caption' text={differential} key={index} />
           ))}
         </Box>
       </CardContent>

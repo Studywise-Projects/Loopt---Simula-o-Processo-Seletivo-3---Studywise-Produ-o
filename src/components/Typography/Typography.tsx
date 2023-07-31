@@ -10,7 +10,8 @@ interface ITypography {
     | 'subtitle'
     | 'subtitle2'
     | 'body'
-    | 'caption';
+    | 'caption'
+    | 'error';
   text: string;
 }
 

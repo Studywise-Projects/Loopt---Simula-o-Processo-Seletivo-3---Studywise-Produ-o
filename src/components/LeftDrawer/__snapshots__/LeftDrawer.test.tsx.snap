@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LeftDrawer Should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`JobDetailsCard Should match the snapshot 1`] = `
+<div
+  aria-expanded="false"
+  aria-haspopup="listbox"
+  aria-labelledby="select-leftdrawer"
+  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+  id="select-leftdrawer"
+  role="button"
+  tabindex="0"
+>
+  <span
+    class="notranslate"
+  >
+    ​
+  </span>
+</div>
+`;

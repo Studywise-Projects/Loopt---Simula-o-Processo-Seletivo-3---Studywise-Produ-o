@@ -29,11 +29,11 @@ function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
   return (
     <Card className={styles.card} id={styles.cardRoot}>
       <CardContent className={styles.cardContent}>
-        {candidates?.map((candidate: ICandidate) => (
+        {candidates?.map((candidate: ICandidate, index: number) => (
           <>
             <Stack
               data-testid='candidates-card'
-              key={candidate.id}
+              key={index}
               className={styles.cardCandidate}
               onClick={() => {
                 setSelectedCandidate(candidate);
@@ -44,7 +44,6 @@ function CandidatesCard({ candidates, withButton = false }: ICandidatesCard) {
                       ? router.asPath.replaceAll('/candidates', '')
                       : router.asPath.replaceAll('/candidates/', ''),
                 });
-                console.log(router.asPath);
               }}
             >
               <Box className={styles.cardHighlight}>
