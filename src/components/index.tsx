@@ -1,3 +1,4 @@
+import AlertDialog from './AlertDialog/AlertDialog';
 import Button from './Button/Button';
 import CandidatesCard from './CandidatesCard/CandidatesCard';
 import Header from './Header/Header';
@@ -12,6 +13,7 @@ import TitleCard from './TitleCard/TitleCard';
 import Typography from './Typography/Typography';
 
 export {
+  AlertDialog,
   Button,
   CandidatesCard,
   Header,
